@@ -1,0 +1,64 @@
+@use '../theme' as *;
+
+@mixin toast-icon($icon-url) {
+  &:before {
+    -webkit-mask: url($icon-url) no-repeat 50% 50%;
+    background-color: currentColor;
+    content: '';
+    display: inline-block;
+    grid-row: span 2;
+    height: 1.5rem;
+    mask: url($icon-url) no-repeat 50% 50%;
+    width: 1.5rem;
+  }
+}
+
+.toast-container {
+  .ngx-toastr {
+    @include toast-icon('https://fonts.gstatic.com/s/i/materialicons/notifications/v12/24px.svg');
+    align-items: center;
+    background-color: $black;
+    background-image: none;
+    border-radius: 0.5rem;
+    box-shadow: $base-shadow;
+    color: $text-light;
+    column-gap: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 1rem;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    .ngx-toastr-title {
+      font-size: 0.875rem;
+      font-weight: bold;
+      grid-column: 2;
+      margin-bottom: 0.25rem;
+    }
+
+    .ngx-toastr-message {
+      font-size: 0.75rem;
+      grid-column: 2;
+    }
+
+    &.toast-error {
+      @include toast-icon('https://fonts.gstatic.com/s/i/materialicons/error/v12/24px.svg');
+      background-color: $error-light;
+      color: $error-dark;
+    }
+
+    &.toast-success {
+      @include toast-icon('https://fonts.gstatic.com/s/i/materialicons/check_circle/v12/24px.svg');
+      background-color: $success-light;
+      color: $success-dark;
+    }
+
+    &.toast-warning {
+      @include toast-icon('https://fonts.gstatic.com/s/i/materialicons/warning/v12/24px.svg');
+      background-color: $warning-light;
+      color: $warning-dark;
+    }
+  }
+}

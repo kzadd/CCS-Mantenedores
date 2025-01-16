@@ -1,0 +1,37 @@
+@use 'ngx-toastr/toastr';
+
+@use './colors' as *;
+@use './fonts' as *;
+@use './functions' as *;
+@use './theme' as *;
+
+@use './components/toast';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: $text-dark;
+  font-family: $base-font-family;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $container;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: $base-breakpoint-md) {
+  html {
+    font-size: 14px;
+  }
+}
