@@ -1,0 +1,13 @@
+@use 'shared/styles/theme' as *;
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: $base-container-spacing;
+
+  .welcome__title {
+    color: $primary-main;
+    font-weight: 700;
+  }
+}
