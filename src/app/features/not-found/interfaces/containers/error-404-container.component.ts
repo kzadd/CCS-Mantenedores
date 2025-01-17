@@ -4,6 +4,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core'
 import { matHome } from '@ng-icons/material-icons/baseline'
 
 import { ButtonComponent } from '@app/shared/components'
+import { ROUTE_PATHS } from '@app/shared/constants/routes.constant'
 
 const ERROR_404_ICONS = {
   homeIcon: matHome
@@ -24,6 +25,6 @@ export class Error404ContainerComponent {
   private _router = inject(Router)
 
   handleGoHome() {
-    this._router.navigate(['/'])
+    this._router.navigate([ROUTE_PATHS.root])
   }
 }
