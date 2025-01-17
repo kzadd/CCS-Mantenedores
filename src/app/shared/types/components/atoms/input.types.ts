@@ -1,0 +1,11 @@
+export type InputTypes =
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'number'
+  | 'password'
+  | 'search'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'

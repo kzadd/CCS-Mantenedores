@@ -1,0 +1,18 @@
+@use 'shared/styles/functions' as *;
+@use 'shared/styles/theme' as *;
+
+.label {
+  align-items: center;
+  color: get-color(gray, 700);
+  display: inline-flex;
+  font-size: 0.625rem;
+  font-weight: 600;
+  gap: 0.25rem;
+  justify-content: center;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+
+  .label__required {
+    color: $error-main;
+  }
+}

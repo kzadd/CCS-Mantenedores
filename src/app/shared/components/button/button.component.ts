@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 
-import { ButtonColor, ButtonType, ButtonVariant } from '@app/shared/types/components/atoms/button.types'
-import { SpinnerColor } from '@app/shared/types/components/atoms/spinner.types'
+import { ButtonColors, ButtonTypes, ButtonVariants } from '@app/shared/types/components/atoms/button.types'
+import { SpinnerColors } from '@app/shared/types/components/atoms/spinner.types'
 import { SpinnerComponent } from '../spinner/spinner.component'
 
 /**
@@ -15,13 +15,13 @@ import { SpinnerComponent } from '../spinner/spinner.component'
   templateUrl: './button.component.html'
 })
 export class ButtonComponent {
-  @Input() color: ButtonColor = 'primary'
+  @Input() color: ButtonColors = 'primary'
   @Input() disabled = false
   @Input() loading = false
   @Input() margin = ''
   @Input() padding = ''
-  @Input() type: ButtonType = 'button'
-  @Input() variant: ButtonVariant = 'contained'
+  @Input() type: ButtonTypes = 'button'
+  @Input() variant: ButtonVariants = 'contained'
   @Input() width = 'initial'
 
   @Output() buttonClick = new EventEmitter<void>()
@@ -43,7 +43,7 @@ export class ButtonComponent {
     }
   }
 
-  get spinnerColor(): SpinnerColor {
+  get spinnerColor(): SpinnerColors {
     return this.variant === 'contained' ? 'white' : this.color
   }
 
