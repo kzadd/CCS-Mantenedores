@@ -1,0 +1,42 @@
+@use 'shared/styles/theme' as *;
+
+$spinner-colors: (
+  'white': $white,
+  default: $default-main,
+  error: $error-main,
+  primary: $primary-main,
+  secondary: $secondary-main,
+  success: $success-main,
+  warning: $warning-main
+);
+
+@mixin spinner-styles($color-main) {
+  border-bottom-color: $color-main;
+  border-right-color: $color-main;
+  border-top-color: $color-main;
+}
+
+.spinner {
+  align-items: center;
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  border: solid 2px transparent;
+  display: flex;
+  justify-content: center;
+
+  @each $name, $colors in $spinner-colors {
+    &.spinner--#{$name} {
+      @include spinner-styles($colors);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

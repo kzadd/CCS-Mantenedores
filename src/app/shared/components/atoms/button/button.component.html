@@ -1,0 +1,9 @@
+<button (click)="handleClick()" [class]="buttonClasses" [disabled]="disabled" [style]="buttonStyles" [type]="type">
+  @if (loading) {
+    <div class="button--loading">
+      <app-spinner [color]="spinnerColor" class="button__spinner" size="20px" />
+    </div>
+  } @else {
+    <ng-content />
+  }
+</button>

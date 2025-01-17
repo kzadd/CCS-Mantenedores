@@ -1,0 +1,99 @@
+@use 'sass:list';
+
+@use 'shared/styles/theme' as *;
+
+$button-colors: (
+  default: (
+    $default-dark,
+    $default-light,
+    $default-main
+  ),
+  error: (
+    $error-dark,
+    $error-light,
+    $error-main
+  ),
+  primary: (
+    $primary-dark,
+    $primary-light,
+    $primary-main
+  ),
+  secondary: (
+    $secondary-dark,
+    $secondary-light,
+    $secondary-main
+  ),
+  success: (
+    $success-dark,
+    $success-light,
+    $success-main
+  ),
+  warning: (
+    $warning-dark,
+    $warning-light,
+    $warning-main
+  )
+);
+
+@mixin button-styles($variant, $color-dark, $color-light, $color-main) {
+  @if $variant == 'contained' {
+    background-color: $color-main;
+    color: $text-light;
+
+    &:hover:not(.button--disabled) {
+      background-color: $color-dark;
+    }
+
+    &.button--disabled {
+      background-color: $default-light;
+      color: $default-main;
+    }
+  } @else if $variant == 'outlined' {
+    background-color: transparent;
+    border: 0.0625rem solid $color-main;
+    color: $color-dark;
+
+    &:hover:not(.button--disabled) {
+      background-color: rgba($color-light, 0.2);
+    }
+
+    &.button--disabled {
+      border-color: $default-light;
+      color: $default-light;
+    }
+  }
+}
+
+.button {
+  align-items: center;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-family: $base-font-family;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  justify-content: center;
+  letter-spacing: 0.025rem;
+  min-height: 2.75rem;
+  min-width: 10.625rem;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  transition: all 0.2s ease;
+
+  @each $variant in ('contained', 'outlined') {
+    &.button--#{$variant} {
+      @each $name, $colors in $button-colors {
+        &.button--#{$name} {
+          @include button-styles($variant, list.nth($colors, 1), list.nth($colors, 2), list.nth($colors, 3));
+        }
+      }
+    }
+  }
+
+  &.button--disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

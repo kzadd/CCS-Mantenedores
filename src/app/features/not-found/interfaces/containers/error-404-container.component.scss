@@ -1,0 +1,46 @@
+@use 'shared/styles/theme' as *;
+
+.error-404 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  .error-404__wave-pattern {
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .error-404__content {
+    background-color: $white;
+    border-radius: 1rem;
+    box-shadow: $base-shadow;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: $base-container-spacing;
+    position: relative;
+    width: 28rem;
+
+    .error-404__title {
+      font-size: 8rem;
+      font-weight: 700;
+      letter-spacing: -0.8rem;
+
+      @media (max-width: $base-breakpoint-md) {
+        font-size: 6rem;
+      }
+    }
+
+    .error-404__description {
+      color: $text-muted;
+      margin-bottom: 1rem;
+    }
+  }
+}
