@@ -1,0 +1,25 @@
+<header class="topbar">
+  <a *appResponsive="'up:sm'" class="topbar__logo-link" routerLink="/">
+    <img alt="Kaufmann" class="topbar__logo" src="/images/logo.svg" />
+  </a>
+
+  <div (click)="handleToggleSidebar()" *appResponsive="'down:xl'" class="topbar__menu--toggle">
+    <ng-icon name="menuIcon" size="1.5rem" />
+  </div>
+
+  <div (mouseenter)="handleProfileHover(true)" (mouseleave)="handleProfileHover(false)" class="topbar__profile">
+    <ng-icon name="userAccountIcon" size="2rem" />
+    <span class="topbar__profile-name">{{ profileName }}</span>
+
+    <div [class.topbar__dropdown--show]="dropdownOpen" class="topbar__dropdown">
+      <ul class="topbar__dropdown-list">
+        <li class="topbar__dropdown-item">
+          <app-button (click)="handleLogout()">
+            <ng-icon name="logoutIcon" />
+            Cerrar Sesión
+          </app-button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

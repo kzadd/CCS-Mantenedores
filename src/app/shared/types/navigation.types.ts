@@ -4,7 +4,7 @@ export interface NavigationItem {
   icon?: string
   label: string
   namePath: string
-  path?: string
+  path: string
 }
 
 export type RouteKey = keyof typeof ROUTE_PATHS

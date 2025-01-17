@@ -1,0 +1,72 @@
+@use 'shared/styles/theme' as *;
+
+.topbar {
+  align-items: center;
+  background-color: $white;
+  box-shadow: $base-shadow;
+  display: flex;
+  gap: 1rem;
+  min-height: $base-topbar-height;
+  padding: 0 $base-container-spacing;
+  position: relative;
+
+  .topbar__logo-link {
+    align-items: center;
+    display: flex;
+
+    .topbar__logo {
+      height: auto;
+      min-width: 15rem;
+      width: 15rem;
+    }
+
+    @media (max-width: $base-breakpoint-xl) {
+      .topbar__logo {
+        height: auto;
+        width: 12.75rem;
+      }
+    }
+  }
+
+  .topbar__sidebar--toggle {
+    cursor: pointer;
+  }
+
+  .topbar__profile {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.875rem;
+    font-weight: 600;
+    gap: 0.5rem;
+    height: calc($base-topbar-height - 1rem);
+    margin-left: auto;
+
+    .topbar__dropdown {
+      background-color: $white;
+      border-radius: 0.5rem;
+      box-shadow: $base-shadow;
+      display: none;
+      min-width: 12rem;
+      overflow: hidden;
+      position: absolute;
+      right: 2rem;
+      top: 85%;
+      z-index: 10;
+
+      .topbar__dropdown-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .topbar__dropdown-item {
+          padding: 1rem;
+        }
+      }
+
+      &.topbar__dropdown--show {
+        display: block;
+      }
+    }
+  }
+}

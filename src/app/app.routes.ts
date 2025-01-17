@@ -1,7 +1,10 @@
 import { Routes } from '@angular/router'
 
+import { authGuard } from './core/guards/auth.guard'
 import { ROUTE_PATHS } from './shared/constants/routes.constant'
 
+const BrandLayout = () => import('./layouts/brand-layout.component').then(m => m.BrandLayoutComponent)
+const DashboardPage = () => import('./features/dashboard').then(m => m.DashboardPage)
 const LoginPage = () => import('./features/login').then(m => m.LoginPage)
 const NotFoundPage = () => import('./features/not-found').then(m => m.NotFoundPage)
 
@@ -28,6 +31,18 @@ export const routes: Routes = [
     path: ROUTE_PATHS.root,
     pathMatch: 'full',
     redirectTo: ROUTE_PATHS.dashboard
+  },
+  {
+    canActivate: [authGuard],
+    children: [
+      {
+        loadComponent: DashboardPage,
+        path: ROUTE_PATHS.root,
+        pathMatch: 'full'
+      }
+    ],
+    loadComponent: BrandLayout,
+    path: ROUTE_PATHS.dashboard
   },
   {
     loadComponent: NotFoundPage,

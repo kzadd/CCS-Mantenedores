@@ -1,0 +1,26 @@
+<aside [class.sidebar--collapsed]="sidebarCollapsed" class="sidebar">
+  <nav class="sidebar__navigation">
+    <ul class="sidebar__menu">
+      @for (navigationItem of navigationItems; track $index) {
+        <li class="sidebar__menu-item">
+          <a
+            (click)="sidebarCollapsed ? handleCloseSidebar() : null"
+            [class.sidebar__menu-link--active]="isRouteActive(navigationItem.namePath, navigationItem.path)"
+            [routerLink]="navigationItem.path"
+            class="sidebar__menu-link"
+          >
+            <ng-icon [svg]="navigationItem.icon" />
+
+            <span class="sidebar__menu-label">
+              {{ navigationItem.label }}
+            </span>
+          </a>
+        </li>
+      } @empty {
+        <li class="sidebar__menu-item sidebar__menu-item--empty">
+          <span class="sidebar__menu-empty-label">Menu</span>
+        </li>
+      }
+    </ul>
+  </nav>
+</aside>
