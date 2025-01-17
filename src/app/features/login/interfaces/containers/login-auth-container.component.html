@@ -1,0 +1,64 @@
+<div class="login-auth">
+  <img alt="Wave pattern" class="login-auth__wave-pattern" src="/images/wave-pattern.svg" />
+
+  <div class="login-auth__container">
+    <div class="login-auth__welcome">
+      <img alt="Profile icon" class="login-auth__profile-icon" src="/images/profile-icon.svg" />
+      <h1 class="login-auth__welcome-title">¡Te damos la bienvenida!</h1>
+
+      <p class="login-auth__welcome-description">
+        Accede a todas las herramientas para facilitar tu trabajo. Por favor, inicia sesión con tus credenciales para
+        continuar.
+      </p>
+    </div>
+
+    <div class="login-auth__form-container">
+      <img alt="Kaufmann" class="login-auth__logo" src="/images/logo.svg" />
+
+      <form (submit)="handleSignIn()" [formGroup]="form" class="login-auth__form">
+        <app-input
+          [error]="getErrorMessage('username')"
+          [isRequired]="true"
+          formControlName="username"
+          id="username"
+          label="Usuario"
+          name="username"
+          placeholder="Ingrese su usuario"
+        />
+
+        <app-input
+          [error]="getErrorMessage('password')"
+          [isRequired]="true"
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          id="password"
+          label="Contraseña"
+          name="password"
+          placeholder="Ingrese su contraseña"
+        >
+          <ng-icon
+            (click)="handleTogglePasswordVisibility()"
+            [name]="showPassword ? 'showPasswordIcon' : 'hidePasswordIcon'"
+            class="login-auth__input-password-icon"
+            suffix
+          />
+        </app-input>
+
+        @if (errorMessage) {
+          <div class="login-auth__error-message">
+            <ng-icon name="errorIcon" />
+
+            <span class="login-auth__error-text">
+              El usuario y/o contraseña no son correctos. Vuelve a intentarlo.
+            </span>
+          </div>
+        }
+
+        <app-button type="submit" width="100%">
+          <ng-icon name="loginIcon" />
+          Iniciar sesión
+        </app-button>
+      </form>
+    </div>
+  </div>
+</div>

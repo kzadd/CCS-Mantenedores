@@ -1,0 +1,29 @@
+<div class="input">
+  @if (label) {
+    <app-label [id]="id" [label]="label" [required]="isRequired" />
+  }
+
+  <div class="input__wrapper">
+    <input
+      (blur)="onTouched()"
+      (input)="onInputChange($event)"
+      [class]="inputFieldClasses"
+      [disabled]="disabled"
+      [id]="id"
+      [name]="name"
+      [placeholder]="placeholder"
+      [type]="type"
+      [value]="value"
+    />
+
+    <div class="input__suffix">
+      <ng-content select="[suffix]" />
+    </div>
+  </div>
+
+  @if (error) {
+    <div class="input__error">
+      {{ error }}
+    </div>
+  }
+</div>

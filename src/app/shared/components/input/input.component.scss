@@ -1,0 +1,69 @@
+@use 'shared/styles/theme' as *;
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .input__wrapper {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    .input__field {
+      align-items: center;
+      border-radius: 0.5rem;
+      border: 0.0625rem solid $border;
+      display: flex;
+      font-family: $base-font-family;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.025rem;
+      min-height: 2.75rem;
+      min-width: 4rem;
+      outline: none;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: all 0.2s ease;
+      width: 100%;
+
+      &::placeholder {
+        color: $text-muted;
+      }
+
+      &:focus,
+      &:hover {
+        border-color: $primary-main;
+      }
+
+      &.input__field--error {
+        border-color: $error-main;
+      }
+
+      &.input__field--disabled {
+        background-color: $default-light;
+        color: $default-dark;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+
+    .input__suffix {
+      align-items: center;
+      border-radius: 0.5rem;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      min-width: 2.5rem;
+      padding: 0.5rem;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+    }
+  }
+
+  .input__error {
+    color: $error-main;
+    font-size: 0.75rem;
+  }
+}
