@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
-import { SpinnerColors } from '@app/shared/types/components/atoms/spinner.types'
+import { SpinnerColors } from '@app/shared/types/components/spinner.types'
 
 /**
  * Spinner component.

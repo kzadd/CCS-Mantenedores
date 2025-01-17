@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
 
-import { ButtonColors, ButtonTypes, ButtonVariants } from '@app/shared/types/components/atoms/button.types'
-import { SpinnerColors } from '@app/shared/types/components/atoms/spinner.types'
+import { ButtonColors, ButtonTypes, ButtonVariants } from '@app/shared/types/components/button.types'
+import { SpinnerColors } from '@app/shared/types/components/spinner.types'
 import { SpinnerComponent } from '../spinner/spinner.component'
 
 /**

@@ -1,4 +1,4 @@
-import { Colors, Variants } from '../../palette.types'
+import { Colors, Variants } from '../palette.types'
 
 export type ButtonColors = Colors
 export type ButtonTypes = 'button' | 'reset' | 'submit'
