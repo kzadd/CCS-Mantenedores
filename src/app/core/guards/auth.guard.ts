@@ -13,7 +13,7 @@ export const authGuard: CanActivateFn = (): boolean => {
   const router = inject(Router)
 
   if (!accessToken) {
-    router.navigate([FULL_ROUTE_PATHS.AUTH.LOGIN])
+    router.navigate([FULL_ROUTE_PATHS.auth.login])
 
     return false
   }

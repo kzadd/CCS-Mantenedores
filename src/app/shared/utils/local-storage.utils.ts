@@ -14,18 +14,22 @@ export const deleteLocalStorage = (key: string): void => {
     localStorage.removeItem(key)
   } catch (error: unknown) {
     console.error(`Unable to delete item from localStorage with key ${key}`, error)
-    throw createError({ originalError: error as Error, reason: 'DELETE_LOCAL_STORAGE_ERROR' })
+
+    throw createError({
+      originalError: error as Error,
+      reason: 'DELETE_LOCAL_STORAGE_ERROR'
+    })
   }
 }
 
 /**
  * Gets data from localStorage by key identifier.
  */
-export const getLocalStorage = <T = string>(
-  key: string,
-  options: LocalStorageOptions = {}
-): T | null => {
-  const { isBase64, isJSON } = { ...defaultLocalStorageOptions, ...options }
+export const getLocalStorage = <T = string>(key: string, options: LocalStorageOptions = {}): T | null => {
+  const { isBase64, isJSON } = {
+    ...defaultLocalStorageOptions,
+    ...options
+  }
 
   try {
     const entry = localStorage.getItem(key)
@@ -38,19 +42,22 @@ export const getLocalStorage = <T = string>(
     return parsedEntry
   } catch (error: unknown) {
     console.error(`Unable to get data from localStorage with key ${key}`, error)
-    throw createError({ originalError: error as Error, reason: 'GET_LOCAL_STORAGE_ERROR' })
+
+    throw createError({
+      originalError: error as Error,
+      reason: 'GET_LOCAL_STORAGE_ERROR'
+    })
   }
 }
 
 /**
  * Stores data in localStorage with specified key.
  */
-export const putLocalStorage = (
-  key: string,
-  value: string | object,
-  options: LocalStorageOptions = {}
-): void => {
-  const { isBase64, isJSON } = { ...defaultLocalStorageOptions, ...options }
+export const putLocalStorage = (key: string, value: string | object, options: LocalStorageOptions = {}): void => {
+  const { isBase64, isJSON } = {
+    ...defaultLocalStorageOptions,
+    ...options
+  }
 
   try {
     const stringValue = isJSON ? JSON.stringify(value) : String(value)
@@ -59,6 +66,10 @@ export const putLocalStorage = (
     localStorage.setItem(key, finalValue)
   } catch (error: unknown) {
     console.error(`Unable to put data into localStorage with key ${key}`, error)
-    throw createError({ originalError: error as Error, reason: 'PUT_LOCAL_STORAGE_ERROR' })
+
+    throw createError({
+      originalError: error as Error,
+      reason: 'PUT_LOCAL_STORAGE_ERROR'
+    })
   }
 }

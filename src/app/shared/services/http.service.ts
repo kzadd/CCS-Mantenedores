@@ -3,12 +3,7 @@ import { inject, Injectable } from '@angular/core'
 import { Observable, throwError } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
 
-import {
-  HttpMethod,
-  NetworkResponse,
-  RequestHeadersOptions,
-  RequestOptions
-} from '../types/http.types'
+import { HttpMethod, NetworkResponse, RequestHeadersOptions, RequestOptions } from '../types/http.types'
 import { getCookie } from '../utils/cookie.utils'
 
 @Injectable({
@@ -46,16 +41,18 @@ export class HttpService {
   /**
    * Makes an HTTP request to the specified endpoint and transforms the response.
    */
-  private _createRequest<T>({
-    data,
-    headers,
-    method,
-    url
-  }: RequestOptions): Observable<NetworkResponse<T>> {
-    return this._http.request<T>(method, url, { body: data, headers }).pipe(
-      map(response => ({ data: response })),
-      catchError((error: HttpErrorResponse) => this._generateError(url, error))
-    )
+  private _createRequest<T>({ data, headers, method, url }: RequestOptions): Observable<NetworkResponse<T>> {
+    return this._http
+      .request<T>(method, url, {
+        body: data,
+        headers
+      })
+      .pipe(
+        map(response => ({
+          data: response
+        })),
+        catchError((error: HttpErrorResponse) => this._generateError(url, error))
+      )
   }
 
   /**
@@ -72,7 +69,12 @@ export class HttpService {
     const headers = this._createHeaders(restOptions)
     const data = body ? JSON.stringify(body) : undefined
 
-    return this._createRequest<T>({ data, headers, method, url })
+    return this._createRequest<T>({
+      data,
+      headers,
+      method,
+      url
+    })
   }
 
   /**
@@ -88,11 +90,7 @@ export class HttpService {
    * Creates and configures HTTP requests with proper headers and body formatting.
    * Acts as a central factory for all HTTP methods.
    */
-  request<T>(
-    method: HttpMethod,
-    url: string,
-    options?: RequestHeadersOptions
-  ): Observable<NetworkResponse<T>> {
+  request<T>(method: HttpMethod, url: string, options?: RequestHeadersOptions): Observable<NetworkResponse<T>> {
     return this._factoryRequest<T>(method, options, url)
   }
 

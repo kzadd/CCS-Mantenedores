@@ -20,7 +20,11 @@ export const createError = ({ code, originalError, reason }: ErrorOptions): Erro
     },
 
     toObject(): AppError {
-      return { code: this.code, originalError: this.originalError, reason: this.reason }
+      return {
+        code: this.code,
+        originalError: this.originalError,
+        reason: this.reason
+      }
     }
   }
 }

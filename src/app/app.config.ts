@@ -23,11 +23,21 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideEffects(effects),
     provideHttpClient(withFetch()),
-    provideNgIconsConfig({ size: '1.125rem' }),
+    provideNgIconsConfig({
+      size: '1.125rem'
+    }),
     provideRouter(routes, withComponentInputBinding()),
-    provideStore(reducer, { metaReducers: [storeLogger] }),
-    provideStoreDevtools({ connectInZone: true, logOnly: env.MODE !== 'production', maxAge: 25 }),
+    provideStore(reducer, {
+      metaReducers: [storeLogger]
+    }),
+    provideStoreDevtools({
+      connectInZone: true,
+      logOnly: env.MODE !== 'production',
+      maxAge: 25
+    }),
     provideToastr(),
-    provideZoneChangeDetection({ eventCoalescing: true })
+    provideZoneChangeDetection({
+      eventCoalescing: true
+    })
   ]
 }

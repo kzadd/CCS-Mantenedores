@@ -1,7 +1,7 @@
-export enum ROUTE_PATHS {
-  AUTH = 'auth',
-  DASHBOARD = 'dashboard',
-  LOGIN = 'login',
-  NOT_FOUND = '**',
-  ROOT = ''
+export const ROUTE_PATHS = {
+  auth: 'auth',
+  dashboard: 'dashboard',
+  login: 'login',
+  notFound: '**',
+  root: ''
 }

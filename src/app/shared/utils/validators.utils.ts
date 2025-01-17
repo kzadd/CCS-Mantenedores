@@ -17,7 +17,11 @@ export const isEmail: ValidatorFn = (control: AbstractControl): ValidationErrors
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
   const isValid = emailRegex.test(control.value.trim())
 
-  return isValid ? null : { email: errorMessages.email }
+  const error = {
+    email: errorMessages.email
+  }
+
+  return isValid ? null : error
 }
 
 /**
@@ -29,7 +33,11 @@ export const isNumber: ValidatorFn = (control: AbstractControl): ValidationError
   const numericRegex = /^[0-9]+$/
   const isValid = numericRegex.test(control.value.trim())
 
-  return isValid ? null : { number: errorMessages.number }
+  const error = {
+    number: errorMessages.number
+  }
+
+  return isValid ? null : error
 }
 
 /**
@@ -38,7 +46,11 @@ export const isNumber: ValidatorFn = (control: AbstractControl): ValidationError
 export const isRequired: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const isValid = control.value && control.value.trim().length
 
-  return isValid ? null : { required: errorMessages.required }
+  const error = {
+    required: errorMessages.required
+  }
+
+  return isValid ? null : error
 }
 
 /**
@@ -50,7 +62,11 @@ export const maxLength = (length: number): ValidatorFn => {
 
     const isValid = control.value.trim().length <= length
 
-    return isValid ? null : { maxlength: errorMessages.maxLength(length) }
+    const error = {
+      maxlength: errorMessages.maxLength(length)
+    }
+
+    return isValid ? null : error
   }
 }
 
@@ -63,6 +79,10 @@ export const minLength = (length: number): ValidatorFn => {
 
     const isValid = control.value.trim().length >= length
 
-    return isValid ? null : { minlength: errorMessages.minLength(length) }
+    const error = {
+      minlength: errorMessages.minLength(length)
+    }
+
+    return isValid ? null : error
   }
 }
