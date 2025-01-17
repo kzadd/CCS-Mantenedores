@@ -7,7 +7,12 @@ import sortExports from 'eslint-plugin-sort-exports'
 import tseslint from 'typescript-eslint'
 
 const eslintConfig = tseslint.config(
-  { ignores: ['coverage', 'dist', 'node_modules'], settings: { angular: { version: 'detect' } } },
+  {
+    ignores: ['coverage', 'dist', 'node_modules'],
+    settings: {
+      angular: { version: 'detect' }
+    }
+  },
   {
     extends: [
       eslint.configs.recommended,
@@ -16,23 +21,45 @@ const eslintConfig = tseslint.config(
       ...angular.configs.tsRecommended
     ],
     files: ['**/*.ts'],
-    languageOptions: { ecmaVersion: 'latest', globals: { ...globals.browser, ...globals.node } },
-    plugins: { prettier, 'simple-import-sort': simpleImportSort, 'sort-exports': sortExports },
+    languageOptions: {
+      ecmaVersion: 'latest',
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    },
+    plugins: {
+      prettier,
+      'simple-import-sort': simpleImportSort,
+      'sort-exports': sortExports
+    },
     processor: angular.processInlineTemplates,
     rules: {
       '@angular-eslint/component-selector': [
         'error',
-        { prefix: 'app', style: 'kebab-case', type: 'element' }
+        {
+          prefix: 'app',
+          style: 'kebab-case',
+          type: 'element'
+        }
       ],
       '@angular-eslint/directive-selector': [
         'error',
-        { prefix: 'app', style: 'camelCase', type: 'attribute' }
+        {
+          prefix: 'app',
+          style: 'camelCase',
+          type: 'attribute'
+        }
       ],
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
-        { args: 'after-used', ignoreRestSiblings: false, vars: 'all' }
+        {
+          args: 'after-used',
+          ignoreRestSiblings: false,
+          vars: 'all'
+        }
       ],
       eqeqeq: ['error', 'always'],
       'no-empty-pattern': 'warn',
@@ -43,13 +70,27 @@ const eslintConfig = tseslint.config(
       'quote-props': ['warn', 'as-needed'],
       'simple-import-sort/imports': [
         'warn',
-        { groups: [['^\\u0000'], ['^@angular', '^node:', '^@?\\w'], ['^@app', '^@env', '^\\.']] }
+        {
+          groups: [['^\\u0000'], ['^@angular', '^node:', '^@?\\w'], ['^@app', '^@env', '^\\.']]
+        }
       ],
       'sort-exports/sort-exports': [
         'warn',
-        { ignoreCase: true, sortDir: 'asc', sortExportKindFirst: 'value' }
+        {
+          ignoreCase: true,
+          sortDir: 'asc',
+          sortExportKindFirst: 'value'
+        }
       ],
-      'sort-keys': ['warn', 'asc', { caseSensitive: false, minKeys: 2, natural: true }]
+      'sort-keys': [
+        'warn',
+        'asc',
+        {
+          caseSensitive: false,
+          minKeys: 2,
+          natural: true
+        }
+      ]
     }
   },
   {

@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": { "analytics": false, "schematicCollections": ["@angular-eslint/schematics"] },
+  "cli": {
+    "analytics": false,
+    "schematicCollections": ["@angular-eslint/schematics"]
+  },
   "newProjectRoot": "projects",
   "projects": {
     "kaufmann-mantenedores": {
@@ -10,8 +13,16 @@
           "configurations": {
             "development": {
               "budgets": [
-                { "maximumError": "1MB", "maximumWarning": "500kB", "type": "initial" },
-                { "maximumError": "8kB", "maximumWarning": "4kB", "type": "anyComponentStyle" }
+                {
+                  "maximumError": "1MB",
+                  "maximumWarning": "500kB",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "8kB",
+                  "maximumWarning": "4kB",
+                  "type": "anyComponentStyle"
+                }
               ],
               "fileReplacements": [
                 {
@@ -34,48 +45,80 @@
             },
             "production": {
               "budgets": [
-                { "maximumError": "1MB", "maximumWarning": "500kB", "type": "initial" },
-                { "maximumError": "8kB", "maximumWarning": "4kB", "type": "anyComponentStyle" }
+                {
+                  "maximumError": "1MB",
+                  "maximumWarning": "500kB",
+                  "type": "initial"
+                },
+                {
+                  "maximumError": "8kB",
+                  "maximumWarning": "4kB",
+                  "type": "anyComponentStyle"
+                }
               ],
               "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production",
           "options": {
-            "assets": [{ "glob": "**/*", "input": "public" }],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
             "browser": "src/main.ts",
             "index": "src/index.html",
             "inlineStyleLanguage": "scss",
             "outputPath": "dist/ccs-mantenedores",
             "polyfills": ["zone.js"],
             "scripts": [],
-            "stylePreprocessorOptions": { "includePaths": ["src/app"] },
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/app"]
+            },
             "styles": ["src/app/shared/styles/globals.scss"],
             "tsConfig": "tsconfig.app.json"
           }
         },
-        "extract-i18n": { "builder": "@angular-devkit/build-angular:extract-i18n" },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
-          "options": { "lintFilePatterns": ["src/**/*.html", "src/**/*.scss", "src/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["src/**/*.html", "src/**/*.scss", "src/**/*.ts"]
+          }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "development": { "buildTarget": "kaufmann-mantenedores:build:development" },
-            "local": { "buildTarget": "kaufmann-mantenedores:build:local" },
-            "production": { "buildTarget": "kaufmann-mantenedores:build:production" }
+            "development": {
+              "buildTarget": "kaufmann-mantenedores:build:development"
+            },
+            "local": {
+              "buildTarget": "kaufmann-mantenedores:build:local"
+            },
+            "production": {
+              "buildTarget": "kaufmann-mantenedores:build:production"
+            }
           },
           "defaultConfiguration": "local"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "assets": [{ "glob": "**/*", "input": "public" }],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
             "inlineStyleLanguage": "scss",
             "polyfills": ["zone.js", "zone.js/testing"],
             "scripts": [],
-            "stylePreprocessorOptions": { "includePaths": ["src/app"] },
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/app"]
+            },
             "styles": ["src/app/shared/styles/globals.scss"],
             "tsConfig": "tsconfig.spec.json"
           }
