@@ -1,0 +1,30 @@
+@use 'shared/styles/functions' as *;
+@use 'shared/styles/theme' as *;
+
+.crud-heading {
+  background-color: get-color(gray, 200);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: $base-container-spacing;
+
+  .crud-heading__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    min-height: 3rem;
+
+    .crud-heading__title {
+      color: $primary-main;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .crud-heading__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+}

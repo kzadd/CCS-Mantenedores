@@ -1,0 +1,28 @@
+<div class="crud-heading">
+  <app-breadcrumb [breadcrumbs]="activeConfig.breadcrumbs" />
+
+  <div class="crud-heading__content">
+    <h1 class="crud-heading__title">
+      {{ activeConfig.title }}
+    </h1>
+
+    @if (activeConfig.actions?.length) {
+      <div class="crud-heading__actions">
+        @for (action of activeConfig.actions; track $index) {
+          <app-button
+            (click)="action.onAction()"
+            [color]="action.color ?? 'primary'"
+            [disabled]="action.disabled ?? false"
+            [variant]="action.variant ?? 'contained'"
+          >
+            @if (action.icon) {
+              <ng-icon [svg]="action.icon" />
+            }
+
+            {{ action.label }}
+          </app-button>
+        }
+      </div>
+    }
+  </div>
+</div>
