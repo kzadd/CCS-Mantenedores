@@ -36,7 +36,7 @@ $toast-colors: (
 );
 
 @mixin toast-styles($color-dark, $color-light, $color-main) {
-  background-color: rgba($color-light, 0.4);
+  background-color: rgba($color-light, 0.3);
   border-color: $color-main;
   color: $color-dark;
 }

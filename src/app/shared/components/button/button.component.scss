@@ -54,7 +54,7 @@ $button-colors: (
     color: $color-dark;
 
     &:hover:not(.button--disabled) {
-      background-color: rgba($color-light, 0.2);
+      background-color: rgba($color-light, 0.3);
     }
 
     &.button--disabled {
