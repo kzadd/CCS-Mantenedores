@@ -1,4 +1,4 @@
-import { Colors } from '../palette.types'
+import { Color } from '../palette.types'
 
-export type ToastColors = Colors
+export type ToastColor = Color
 export type ToastTextDirection = 'horizontal' | 'vertical'

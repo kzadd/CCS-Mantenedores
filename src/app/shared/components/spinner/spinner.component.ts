@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
-import { SpinnerColors } from '@app/shared/types/components/spinner.types'
+import { SpinnerColor } from '@app/shared/types/components/spinner.types'
 
 /**
  * Spinner component.
@@ -13,7 +13,7 @@ import { SpinnerColors } from '@app/shared/types/components/spinner.types'
   templateUrl: './spinner.component.html'
 })
 export class SpinnerComponent {
-  @Input() color: SpinnerColors = 'primary'
+  @Input() color: SpinnerColor = 'primary'
   @Input() size = '44px'
 
   get spinnerClasses(): string {

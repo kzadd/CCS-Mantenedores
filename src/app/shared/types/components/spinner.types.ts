@@ -1,3 +1,3 @@
-import { Colors } from '../palette.types'
+import { Color } from '../palette.types'
 
-export type SpinnerColors = Colors | 'white'
+export type SpinnerColor = Color | 'white'

@@ -1,7 +1,7 @@
-import { Colors } from '../palette.types'
+import { Color } from '../palette.types'
 
 export interface TableAction<T> {
-  color?: Colors
+  color?: Color
   icon?: string
   label: string
   onAction: (row: T) => void

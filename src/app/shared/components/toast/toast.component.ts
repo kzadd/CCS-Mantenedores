@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { NgIcon } from '@ng-icons/core'
 import { matCheckCircle, matError, matHelp, matInfo, matWarning } from '@ng-icons/material-icons/baseline'
 
-import { ToastColors, ToastTextDirection } from '@app/shared/types/components/toast.types'
+import { ToastColor, ToastTextDirection } from '@app/shared/types/components/toast.types'
 
 const TOAST_ICONS = {
   defaultIcon: matHelp,
@@ -25,7 +25,7 @@ const TOAST_ICONS = {
 export class ToastComponent {
   @Input() margin = ''
   @Input() padding = ''
-  @Input() severity: ToastColors = 'primary'
+  @Input() severity: ToastColor = 'primary'
   @Input() textDirection: ToastTextDirection = 'horizontal'
   @Input() title = ''
   @Input() width = 'auto'

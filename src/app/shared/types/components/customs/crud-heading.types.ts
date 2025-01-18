@@ -1,13 +1,13 @@
 import { Breadcrumb } from '../breadscrumb.types'
-import { ButtonColors, ButtonVariants } from '../button.types'
+import { ButtonColor, ButtonVariant } from '../button.types'
 
 export interface HeadingAction {
-  color?: ButtonColors
+  color?: ButtonColor
   disabled?: boolean
   icon?: string
   label: string
   onAction: () => void
-  variant?: ButtonVariants
+  variant?: ButtonVariant
 }
 
 export type HeadingConfig<T extends string> = Record<T, HeadingConfigItem>

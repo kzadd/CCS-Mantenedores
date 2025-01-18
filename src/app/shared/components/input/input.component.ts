@@ -9,7 +9,7 @@ import {
 } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms'
 
-import { InputTypes } from '@app/shared/types/components/input.types'
+import { InputType } from '@app/shared/types/components/input.types'
 import { LabelComponent } from '../label/label.component'
 
 const CONTROL_VALUE_ACCESSOR = {
@@ -39,7 +39,7 @@ export class InputComponent implements AfterContentInit, ControlValueAccessor {
   @Input() label = ''
   @Input() name = ''
   @Input() placeholder = ''
-  @Input() type: InputTypes = 'text'
+  @Input() type: InputType = 'text'
   @Input() value = ''
 
   hasSuffix = false
