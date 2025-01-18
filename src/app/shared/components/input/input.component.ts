@@ -12,13 +12,19 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
 import { InputTypes } from '@app/shared/types/components/input.types'
 import { LabelComponent } from '../label/label.component'
 
+const CONTROL_VALUE_ACCESSOR = {
+  multi: true,
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => InputComponent)
+}
+
 /**
  * Input component.
  */
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [LabelComponent, ReactiveFormsModule],
-  providers: [{ multi: true, provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => InputComponent) }],
+  providers: [CONTROL_VALUE_ACCESSOR],
   selector: 'app-input',
   styleUrl: './input.component.scss',
   templateUrl: './input.component.html'

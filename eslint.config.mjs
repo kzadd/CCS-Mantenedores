@@ -10,7 +10,9 @@ const eslintConfig = tseslint.config(
   {
     ignores: ['coverage', 'dist', 'node_modules'],
     settings: {
-      angular: { version: 'detect' }
+      angular: {
+        version: 'detect'
+      }
     }
   },
   {

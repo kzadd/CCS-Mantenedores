@@ -20,7 +20,11 @@ const CountryShowPage = () =>
 export const countryRoutes: Routes = [
   {
     children: [
-      { path: ROUTE_PATHS.root, pathMatch: 'full', redirectTo: ROUTE_PATHS.list },
+      {
+        path: ROUTE_PATHS.root,
+        pathMatch: 'full',
+        redirectTo: ROUTE_PATHS.list
+      },
       {
         loadComponent: CountryEditPage,
         path: ROUTE_PATHS.edit
