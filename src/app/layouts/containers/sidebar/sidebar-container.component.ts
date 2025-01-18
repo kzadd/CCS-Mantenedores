@@ -1,14 +1,28 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, OnInit, Output, signal } from '@angular/core'
 import { NavigationEnd, Router, RouterLink } from '@angular/router'
 import { NgIcon } from '@ng-icons/core'
-import { matHome } from '@ng-icons/material-icons/baseline'
+import {
+  matBusiness,
+  matGppGood,
+  matGridView,
+  matHome,
+  matHomeWork,
+  matLocationCity,
+  matPeople
+} from '@ng-icons/material-icons/baseline'
 
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 import { ROUTE_PATHS } from '@app/shared/constants/routes.constant'
 import { NavigationItem, RouteKey } from '@app/shared/types/navigation.types'
 
 const SIDEBAR_ICONS = {
-  homeIcon: matHome
+  companyIcon: matBusiness,
+  countryIcon: matLocationCity,
+  dealershipIcon: matHomeWork,
+  functionalityIcon: matGridView,
+  homeIcon: matHome,
+  roleIcon: matGppGood,
+  userIcon: matPeople
 }
 
 /**
@@ -35,6 +49,42 @@ export class SidebarContainerComponent implements OnInit {
       label: 'Panel',
       namePath: 'dashboard',
       path: this._buildPath('dashboard')
+    },
+    {
+      icon: SIDEBAR_ICONS.countryIcon,
+      label: 'Paises',
+      namePath: 'country',
+      path: this._buildPath('country')
+    },
+    {
+      icon: SIDEBAR_ICONS.companyIcon,
+      label: 'Empresas',
+      namePath: 'company',
+      path: this._buildPath('company')
+    },
+    {
+      icon: SIDEBAR_ICONS.dealershipIcon,
+      label: 'Concesionarios',
+      namePath: 'dealership',
+      path: this._buildPath('dealership')
+    },
+    {
+      icon: SIDEBAR_ICONS.userIcon,
+      label: 'Usuarios',
+      namePath: 'user',
+      path: this._buildPath('user')
+    },
+    {
+      icon: SIDEBAR_ICONS.roleIcon,
+      label: 'Roles',
+      namePath: 'role',
+      path: this._buildPath('role')
+    },
+    {
+      icon: SIDEBAR_ICONS.functionalityIcon,
+      label: 'Funcionalidades',
+      namePath: 'functionality',
+      path: this._buildPath('functionality')
     }
   ]
 

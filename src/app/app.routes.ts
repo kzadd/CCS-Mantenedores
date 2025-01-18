@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router'
 
 import { authGuard } from './core/guards/auth.guard'
+import { countryRoutes } from './features/country'
 import { ROUTE_PATHS } from './shared/constants/routes.constant'
 
 const BrandLayout = () => import('./layouts/brand-layout.component').then(m => m.BrandLayoutComponent)
@@ -39,7 +40,8 @@ export const routes: Routes = [
         loadComponent: DashboardPage,
         path: ROUTE_PATHS.root,
         pathMatch: 'full'
-      }
+      },
+      ...countryRoutes
     ],
     loadComponent: BrandLayout,
     path: ROUTE_PATHS.dashboard
