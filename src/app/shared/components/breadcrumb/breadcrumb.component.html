@@ -1,0 +1,23 @@
+<nav class="breadcrumb">
+  <ul class="breadcrumb__list">
+    @for (breadcrumb of breadcrumbs; track $index; let first = $first; let last = $last) {
+      <li [class.breadcrumb__item--active]="last" class="breadcrumb__item">
+        @if (!last) {
+          <a [routerLink]="breadcrumb.path" class="breadcrumb__link">
+            @if (first) {
+              <ng-icon name="homeIcon" size="1rem" />
+            }
+
+            <span class="breadcrumb__label">
+              {{ breadcrumb.label }}
+            </span>
+          </a>
+        } @else {
+          <span class="breadcrumb__label">
+            {{ breadcrumb.label }}
+          </span>
+        }
+      </li>
+    }
+  </ul>
+</nav>

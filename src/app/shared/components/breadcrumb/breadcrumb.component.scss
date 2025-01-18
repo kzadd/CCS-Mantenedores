@@ -1,0 +1,48 @@
+@use 'shared/styles/theme' as *;
+
+.breadcrumb {
+  align-items: center;
+  display: flex;
+
+  .breadcrumb__list {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+
+    .breadcrumb__item {
+      align-items: center;
+      display: flex;
+      gap: 0.5rem;
+      user-select: none;
+
+      &:not(:last-child):after {
+        color: $default-dark;
+        content: '/';
+      }
+
+      &.breadcrumb__item--active {
+        color: $primary-dark;
+        font-weight: bold;
+      }
+
+      .breadcrumb__label,
+      .breadcrumb__link {
+        color: $primary-main;
+        font-size: 0.75rem;
+        user-select: none;
+      }
+
+      .breadcrumb__link {
+        align-items: center;
+        display: flex;
+        gap: 0.5rem;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary-dark;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
