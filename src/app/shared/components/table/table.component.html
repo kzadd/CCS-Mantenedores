@@ -1,0 +1,100 @@
+<div class="table">
+  <table class="table__content">
+    <thead class="table__header">
+      <tr class="table__header-row">
+        @for (column of columns; track $index) {
+          <th
+            [class]="{
+              'table__header-cell': true,
+              'table__header-cell--sortable': column.sortable,
+              'table__header-cell--sorted': sortBy === column.key && sortOrder !== 'none'
+            }"
+            [style.min-width]="column.width ?? 'auto'"
+            [style.width]="column.width ?? 'auto'"
+          >
+            <div (click)="sortData(column)" class="table__header-cell-content">
+              {{ column.label }}
+
+              @if (column.sortable) {
+                @if (sortBy === column.key) {
+                  <ng-icon
+                    [name]="sortOrder === 'asc' ? 'ascIcon' : sortOrder === 'desc' ? 'descIcon' : 'noneIcon'"
+                    size="0.825rem"
+                  />
+                } @else {
+                  <ng-icon name="noneIcon" size="0.825rem" />
+                }
+              }
+            </div>
+          </th>
+        }
+
+        @if (actions.length) {
+          <th [style.min-width]="'350px'" [style.width]="'350px'" class="table__header-cell">
+            <div class="table__header-cell-content">Acciones</div>
+          </th>
+        }
+      </tr>
+    </thead>
+
+    <tbody class="table__body">
+      @for (row of data; track $index) {
+        <tr class="table__body-row">
+          @for (column of columns; track $index) {
+            <td
+              [style.min-width]="column.width ?? 'auto'"
+              [style.width]="column.width ?? 'auto'"
+              class="table__body-cell"
+            >
+              <div class="table__body-cell-content">
+                @if (column.key === 'status') {
+                  <span>
+                    {{ row[column.key] ? 'Activo' : 'Inactivo' }}
+                  </span>
+                } @else {
+                  {{ row[column.key] }}
+                }
+              </div>
+            </td>
+          }
+
+          @if (actions.length) {
+            <td [style.min-width]="'350px'" [style.width]="'350px'" class="table__body-cell">
+              <div class="table__body-cell-actions">
+                @for (action of actions; track action.label) {
+                  <span
+                    (click)="action.onAction($any(row))"
+                    [class]="{
+                      'table__action--default': action.color === 'default',
+                      'table__action--error': action.color === 'error',
+                      'table__action--primary': action.color === 'primary',
+                      'table__action--secondary': action.color === 'secondary',
+                      'table__action--success': action.color === 'success',
+                      'table__action--warning': action.color === 'warning',
+                      table__action: true
+                    }"
+                  >
+                    @if (action.icon) {
+                      <ng-icon [svg]="action.icon" size="1rem" />
+                    }
+
+                    {{ action.label }}
+                  </span>
+                }
+              </div>
+            </td>
+          }
+        </tr>
+      } @empty {
+        <tr class="table__body-row--empty">
+          <td [attr.colspan]="columns.length + (actions.length ? 1 : 0)" class="table__body-cell">
+            <div class="table__body-row--empty-content">
+              <div class="table__body-row--empty-title">Sin resultados</div>
+              <div class="table__body-row--empty-description">No se encontraron registros en este recurso.</div>
+            </div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
