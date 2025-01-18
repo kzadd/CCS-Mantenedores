@@ -5,39 +5,32 @@
 $toast-colors: (
   default: (
     $default-dark,
-    $default-light,
-    $default-main
+    $default-light
   ),
   error: (
     $error-dark,
-    $error-light,
-    $error-main
+    $error-light
   ),
   primary: (
     $primary-dark,
-    $primary-light,
-    $primary-main
+    $primary-light
   ),
   secondary: (
     $secondary-dark,
-    $secondary-light,
-    $secondary-main
+    $secondary-light
   ),
   success: (
     $success-dark,
-    $success-light,
-    $success-main
+    $success-light
   ),
   warning: (
     $warning-dark,
-    $warning-light,
-    $warning-main
+    $warning-light
   )
 );
 
-@mixin toast-styles($color-dark, $color-light, $color-main) {
+@mixin toast-styles($color-dark, $color-light) {
   background-color: rgba($color-light, 0.3);
-  border-color: $color-main;
   color: $color-dark;
 }
 
@@ -51,7 +44,7 @@ $toast-colors: (
 
   @each $name, $colors in $toast-colors {
     &.toast--#{$name} {
-      @include toast-styles(list.nth($colors, 1), list.nth($colors, 2), list.nth($colors, 3));
+      @include toast-styles(list.nth($colors, 1), list.nth($colors, 2));
     }
   }
 
