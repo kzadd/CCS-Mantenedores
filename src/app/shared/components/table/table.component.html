@@ -30,7 +30,7 @@
         }
 
         @if (actions.length) {
-          <th [style.min-width]="'350px'" [style.width]="'350px'" class="table__header-cell">
+          <th class="table__header-cell">
             <div class="table__header-cell-content">Acciones</div>
           </th>
         }
@@ -59,7 +59,7 @@
           }
 
           @if (actions.length) {
-            <td [style.min-width]="'350px'" [style.width]="'350px'" class="table__body-cell">
+            <td class="table__body-cell">
               <div class="table__body-cell-actions">
                 @for (action of actions; track action.label) {
                   <span
