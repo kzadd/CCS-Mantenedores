@@ -73,21 +73,6 @@
               cursor: pointer;
             }
           }
-
-          .login-auth__error-message {
-            align-items: center;
-            background-color: rgba($error-light, 0.4);
-            border-radius: 0.5rem;
-            color: $error-dark;
-            display: flex;
-            gap: 0.5rem;
-            padding: 1rem;
-
-            .login-auth__error-text {
-              flex: 1;
-              font-size: 0.75rem;
-            }
-          }
         }
       }
 

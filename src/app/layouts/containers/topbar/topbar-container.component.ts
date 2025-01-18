@@ -29,7 +29,6 @@ export class TopbarContainerComponent {
   private _router = inject(Router)
 
   @Input() dropdownOpen = false
-
   @Output() toggleSidebar = new EventEmitter<void>()
 
   profileName: string = DEFAULT_CREDENTIALS.username

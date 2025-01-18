@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { NgIcon, provideIcons } from '@ng-icons/core'
 import { matError, matLogin, matVisibility, matVisibilityOff } from '@ng-icons/material-icons/baseline'
 
-import { ButtonComponent, InputComponent } from '@app/shared/components'
+import { ButtonComponent, InputComponent, ToastComponent } from '@app/shared/components'
 import { DEFAULT_CREDENTIALS, TOKEN_KEYS, TOKENS } from '@app/shared/constants/app.constant'
 import { ROUTE_PATHS } from '@app/shared/constants/routes.constant'
 import { putCookie } from '@app/shared/utils/cookie.utils'
@@ -24,7 +24,7 @@ const LOGIN_ICONS = {
  */
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ButtonComponent, InputComponent, NgIcon, ReactiveFormsModule],
+  imports: [ButtonComponent, InputComponent, NgIcon, ReactiveFormsModule, ToastComponent],
   selector: 'app-login-auth-container',
   styleUrl: './login-auth-container.component.scss',
   templateUrl: './login-auth-container.component.html',

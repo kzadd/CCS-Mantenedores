@@ -1,0 +1,15 @@
+<div [class]="toastClasses" [style]="toastStyles">
+  <ng-icon [svg]="toastIcon" size="1rem" />
+
+  <div class="toast__content">
+    @if (title) {
+      <h3 class="toast__title">
+        {{ title }}
+      </h3>
+    }
+
+    <p [class]="textDirection === 'horizontal' ? 'toast__subtitle' : 'toast__body'">
+      <ng-content />
+    </p>
+  </div>
+</div>

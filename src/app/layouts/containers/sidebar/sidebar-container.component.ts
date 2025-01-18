@@ -25,7 +25,6 @@ export class SidebarContainerComponent implements OnInit {
   private _router = inject(Router)
 
   @Input() sidebarCollapsed = false
-
   @Output() closeSidebar = new EventEmitter<void>()
 
   currentUrl = signal<string>(this._router.url)

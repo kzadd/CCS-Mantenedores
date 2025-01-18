@@ -1,0 +1,80 @@
+@use 'sass:list';
+
+@use 'shared/styles/theme' as *;
+
+$toast-colors: (
+  default: (
+    $default-dark,
+    $default-light,
+    $default-main
+  ),
+  error: (
+    $error-dark,
+    $error-light,
+    $error-main
+  ),
+  primary: (
+    $primary-dark,
+    $primary-light,
+    $primary-main
+  ),
+  secondary: (
+    $secondary-dark,
+    $secondary-light,
+    $secondary-main
+  ),
+  success: (
+    $success-dark,
+    $success-light,
+    $success-main
+  ),
+  warning: (
+    $warning-dark,
+    $warning-light,
+    $warning-main
+  )
+);
+
+@mixin toast-styles($color-dark, $color-light, $color-main) {
+  background-color: rgba($color-light, 0.4);
+  border-color: $color-main;
+  color: $color-dark;
+}
+
+.toast {
+  align-items: center;
+  border-radius: 0.5rem;
+  border: none;
+  display: flex;
+  gap: 0.875rem;
+  padding: 1rem;
+
+  @each $name, $colors in $toast-colors {
+    &.toast--#{$name} {
+      @include toast-styles(list.nth($colors, 1), list.nth($colors, 2), list.nth($colors, 3));
+    }
+  }
+
+  &.toast__direction--horizontal .toast__content {
+    flex-direction: row;
+  }
+
+  &.toast__direction--vertical .toast__content {
+    flex-direction: column;
+  }
+
+  .toast__content {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .toast__title {
+    font-weight: 600;
+  }
+
+  .toast__title,
+  .toast__subtitle,
+  .toast__body {
+    font-size: 12px;
+  }
+}

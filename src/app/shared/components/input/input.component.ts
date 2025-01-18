@@ -26,8 +26,6 @@ import { LabelComponent } from '../label/label.component'
 export class InputComponent implements AfterContentInit, ControlValueAccessor {
   @ContentChild('[suffix]', { static: false }) suffix!: ElementRef
 
-  hasSuffix = false
-
   @Input() disabled = false
   @Input() error = ''
   @Input() id = ''
@@ -37,6 +35,8 @@ export class InputComponent implements AfterContentInit, ControlValueAccessor {
   @Input() placeholder = ''
   @Input() type: InputTypes = 'text'
   @Input() value = ''
+
+  hasSuffix = false
 
   get inputFieldClasses(): string[] {
     return [
