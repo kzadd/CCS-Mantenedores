@@ -48,9 +48,10 @@
             >
               <div class="table__body-cell-content">
                 @if (column.key === 'status') {
-                  <span>
-                    {{ row[column.key] ? 'Activo' : 'Inactivo' }}
-                  </span>
+                  <app-badge
+                    [color]="row[column.key] ? 'success' : 'error'"
+                    [label]="row[column.key] ? 'Activo' : 'Inactivo'"
+                  />
                 } @else {
                   {{ row[column.key] }}
                 }

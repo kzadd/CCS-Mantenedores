@@ -1,0 +1,54 @@
+@use 'sass:list';
+
+@use 'shared/styles/theme' as *;
+
+$badge-colors: (
+  default: (
+    $default-dark,
+    $default-light
+  ),
+  error: (
+    $error-dark,
+    $error-light
+  ),
+  primary: (
+    $primary-dark,
+    $primary-light
+  ),
+  secondary: (
+    $secondary-dark,
+    $secondary-light
+  ),
+  success: (
+    $success-dark,
+    $success-light
+  ),
+  warning: (
+    $warning-dark,
+    $warning-light
+  )
+);
+
+@mixin badge-styles($color-dark, $color-light) {
+  background-color: rgba($color-light, 0.5);
+  color: $color-dark;
+}
+
+.badge {
+  align-items: center;
+  border-radius: 1rem;
+  display: flex;
+  font-size: 0.625rem;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.0625rem;
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+  text-transform: uppercase;
+
+  @each $name, $colors in $badge-colors {
+    &.badge--#{$name} {
+      @include badge-styles(list.nth($colors, 1), list.nth($colors, 2));
+    }
+  }
+}

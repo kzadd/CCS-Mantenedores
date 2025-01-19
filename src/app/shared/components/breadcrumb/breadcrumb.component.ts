@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router'
 import { NgIcon, provideIcons } from '@ng-icons/core'
 import { matHome } from '@ng-icons/material-icons/baseline'
 
-import { Breadcrumb } from '@app/shared/types/components/breadscrumb.types'
+import { Breadcrumb } from '@app/shared/types/components/breadcrumb.types'
 
 const BREADCRUMB_ICONS = {
   homeIcon: matHome

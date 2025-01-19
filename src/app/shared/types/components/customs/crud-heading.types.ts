@@ -1,4 +1,4 @@
-import { Breadcrumb } from '../breadscrumb.types'
+import { Breadcrumb } from '../breadcrumb.types'
 import { ButtonColor, ButtonVariant } from '../button.types'
 
 export interface HeadingAction {

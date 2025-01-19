@@ -10,6 +10,7 @@ import {
   TableDataValue,
   TableOrder
 } from '@app/shared/types/components/table.types'
+import { BadgeComponent } from '../badge/badge.component'
 
 const TABLE_ICONS = {
   ascIcon: matArrowUpward,
@@ -22,7 +23,7 @@ const TABLE_ICONS = {
  */
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgIcon],
+  imports: [BadgeComponent, NgIcon],
   selector: 'app-table',
   styleUrl: './table.component.scss',
   templateUrl: './table.component.html',

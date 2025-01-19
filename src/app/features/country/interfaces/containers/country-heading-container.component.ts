@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store'
 import { CountryViewMode } from '@app/features/country/domain/country.entity'
 import { CrudHeadingComponent } from '@app/shared/components'
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
-import { Breadcrumb } from '@app/shared/types/components/breadscrumb.types'
+import { Breadcrumb } from '@app/shared/types/components/breadcrumb.types'
 import { HeadingAction, HeadingConfig } from '@app/shared/types/components/customs/crud-heading.types'
 import { countryFeature } from '../../application/country.feature'
 
