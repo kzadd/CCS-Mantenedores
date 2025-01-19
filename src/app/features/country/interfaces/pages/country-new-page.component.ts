@@ -12,7 +12,7 @@ import { CountryHeadingContainerComponent } from '../containers/country-heading-
   selector: 'app-country-new-page',
   template: `
     <app-country-heading-container mode="new" />
-    <app-country-form-container />
+    <app-country-form-container mode="new" />
   `
 })
 export class CountryNewPageComponent {}

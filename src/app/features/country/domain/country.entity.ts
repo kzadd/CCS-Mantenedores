@@ -22,7 +22,7 @@ export interface CountryApiResponse {
 }
 
 export type CountryForm = FormControlGroup<Country>
-export type CountryFormMode = 'edit' | 'new'
+export type CountryFormViewMode = 'edit' | 'new'
 export type CountryKey = Extract<keyof Country, string>
 
 export interface CountryState {
@@ -32,4 +32,4 @@ export interface CountryState {
   loading: boolean
 }
 
-export type CountryViewMode = 'list' | 'show' | CountryFormMode
+export type CountryViewMode = 'list' | 'show' | CountryFormViewMode

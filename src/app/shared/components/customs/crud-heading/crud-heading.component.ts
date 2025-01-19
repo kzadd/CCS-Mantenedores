@@ -17,7 +17,7 @@ import { ButtonComponent } from '../../button/button.component'
 })
 export class CrudHeadingComponent<T extends string> implements OnInit {
   @Input({ required: true }) config!: HeadingConfig<T>
-  @Input() loading = false
+  @Input({ required: true }) loading!: boolean
   @Input({ required: true }) mode!: T
 
   activeConfig!: HeadingConfigItem

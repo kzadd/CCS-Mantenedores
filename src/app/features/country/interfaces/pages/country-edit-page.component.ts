@@ -12,7 +12,7 @@ import { CountryHeadingContainerComponent } from '../containers/country-heading-
   selector: 'app-country-edit-page',
   template: `
     <app-country-heading-container mode="edit" />
-    <app-country-form-container />
+    <app-country-form-container mode="edit" />
   `
 })
 export class CountryEditPageComponent {}
