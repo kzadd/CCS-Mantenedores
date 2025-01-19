@@ -9,16 +9,6 @@
   transition: all 0.2s ease;
   width: $base-sidebar-width;
 
-  @media (max-width: $base-breakpoint-xl) {
-    box-shadow: $base-shadow;
-    height: calc(100vh - $base-topbar-height);
-    left: 0;
-    position: absolute;
-    top: 5rem;
-    transform: translateX(-100%);
-    z-index: 10;
-  }
-
   &.sidebar--collapsed {
     transform: translateX(0);
   }
@@ -37,7 +27,6 @@
           border-radius: 0.5rem;
           color: $text-light;
           display: flex;
-          flex-wrap: wrap;
           font-size: 0.875rem;
           gap: 0.5rem;
           height: 100%;
@@ -58,7 +47,6 @@
           align-items: center;
           color: $text-light;
           display: flex;
-          flex-wrap: wrap;
           font-size: 0.875rem;
           font-weight: 600;
           min-height: 2.75rem;
@@ -66,5 +54,15 @@
         }
       }
     }
+  }
+
+  @media (max-width: $base-breakpoint-xl) {
+    box-shadow: $base-shadow;
+    height: calc(100vh - $base-topbar-height);
+    left: 0;
+    position: absolute;
+    top: 5rem;
+    transform: translateX(-100%);
+    z-index: 10;
   }
 }

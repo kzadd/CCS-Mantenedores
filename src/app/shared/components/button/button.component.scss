@@ -46,6 +46,7 @@ $button-colors: (
 
     &.button--disabled {
       background-color: $default-light;
+      border-color: $border;
       color: $default-main;
     }
   } @else if $variant == 'outlined' {
@@ -58,6 +59,7 @@ $button-colors: (
     }
 
     &.button--disabled {
+      border-color: $border;
       border-color: $default-light;
       color: $default-light;
     }
@@ -70,7 +72,6 @@ $button-colors: (
   border: none;
   cursor: pointer;
   display: flex;
-  flex-wrap: wrap;
   font-family: $base-font-family;
   font-size: 0.875rem;
   font-weight: 500;
