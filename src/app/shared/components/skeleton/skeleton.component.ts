@@ -17,7 +17,7 @@ export class SkeletonComponent {
   @Input() height = ''
   @Input() margin = ''
   @Input() padding = ''
-  @Input() variant: SkeletonVariant = 'text'
+  @Input() variant: SkeletonVariant = 'rectangular'
   @Input() width = ''
 
   get skeletonClasses(): string {

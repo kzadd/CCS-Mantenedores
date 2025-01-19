@@ -1,2 +1,2 @@
 export type SkeletonAnimation = 'none' | 'pulse' | 'wave'
-export type SkeletonVariant = 'circular' | 'rectangular' | 'text'
+export type SkeletonVariant = 'circular' | 'rectangular'
