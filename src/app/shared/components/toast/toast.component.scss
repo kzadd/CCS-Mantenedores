@@ -30,7 +30,7 @@ $toast-colors: (
 );
 
 @mixin toast-styles($color-dark, $color-light) {
-  background-color: rgba($color-light, 0.3);
+  background-color: rgba($color-light, 0.5);
   color: $color-dark;
 }
 
@@ -39,6 +39,7 @@ $toast-colors: (
   border-radius: 0.5rem;
   border: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.875rem;
   padding: 1rem;
 
@@ -58,6 +59,7 @@ $toast-colors: (
 
   .toast__content {
     display: flex;
+    flex-wrap: wrap;
     flex: 1;
     gap: 0.25rem;
   }

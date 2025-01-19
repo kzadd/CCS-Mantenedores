@@ -54,7 +54,7 @@ $button-colors: (
     color: $color-dark;
 
     &:hover:not(.button--disabled) {
-      background-color: rgba($color-light, 0.3);
+      background-color: rgba($color-light, 0.5);
     }
 
     &.button--disabled {
@@ -70,6 +70,7 @@ $button-colors: (
   border: none;
   cursor: pointer;
   display: flex;
+  flex-wrap: wrap;
   font-family: $base-font-family;
   font-size: 0.875rem;
   font-weight: 500;
@@ -94,6 +95,5 @@ $button-colors: (
 
   &.button--disabled {
     cursor: not-allowed;
-    pointer-events: none;
   }
 }

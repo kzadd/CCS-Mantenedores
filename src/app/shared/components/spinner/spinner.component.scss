@@ -22,6 +22,7 @@ $spinner-colors: (
   border-radius: 50%;
   border: solid 0.125rem transparent;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 
   @each $name, $colors in $spinner-colors {

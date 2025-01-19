@@ -3,15 +3,18 @@
 .breadcrumb {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
 
   .breadcrumb__list {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
 
     .breadcrumb__item {
       align-items: center;
       display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
       user-select: none;
 
@@ -35,6 +38,7 @@
       .breadcrumb__link {
         align-items: center;
         display: flex;
+        flex-wrap: wrap;
         gap: 0.5rem;
         text-decoration: none;
 

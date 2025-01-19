@@ -1,0 +1,49 @@
+<div class="pagination">
+  <app-button
+    (click)="changePage(1)"
+    [disabled]="currentPage === 1"
+    [variant]="currentPage === 1 ? 'contained' : 'outlined'"
+    color="default"
+  >
+    <ng-icon name="firstIcon" size="1rem" />
+  </app-button>
+
+  <app-button
+    (click)="changePage(currentPage - 1)"
+    [disabled]="currentPage === 1"
+    [variant]="currentPage === 1 ? 'contained' : 'outlined'"
+    color="default"
+  >
+    <ng-icon name="prevIcon" size="1rem" />
+  </app-button>
+
+  @for (page of pages; track page) {
+    @if (page !== '...') {
+      <app-button (click)="changePage(+page)" [variant]="page === currentPage ? 'contained' : 'outlined'">
+        {{ page }}
+      </app-button>
+    }
+
+    @if (page === '...') {
+      <span class="pagination__ellipsis">...</span>
+    }
+  }
+
+  <app-button
+    (click)="changePage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+    [variant]="currentPage === totalPages ? 'contained' : 'outlined'"
+    color="default"
+  >
+    <ng-icon name="nextIcon" size="1rem" />
+  </app-button>
+
+  <app-button
+    (click)="changePage(totalPages)"
+    [disabled]="currentPage === totalPages"
+    [variant]="currentPage === totalPages ? 'contained' : 'outlined'"
+    color="default"
+  >
+    <ng-icon name="lastIcon" size="1rem" />
+  </app-button>
+</div>

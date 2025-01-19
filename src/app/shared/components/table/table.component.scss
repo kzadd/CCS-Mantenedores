@@ -5,37 +5,37 @@
 
 $button-colors: (
   default: (
-    $default-dark,
+    $default-light,
     $default-main
   ),
   error: (
-    $error-dark,
+    $error-light,
     $error-main
   ),
   primary: (
-    $primary-dark,
+    $primary-light,
     $primary-main
   ),
   secondary: (
-    $secondary-dark,
+    $secondary-light,
     $secondary-main
   ),
   success: (
-    $success-dark,
+    $success-light,
     $success-main
   ),
   warning: (
-    $warning-dark,
+    $warning-light,
     $warning-main
   )
 );
 
-@mixin table-action-styles($color-dark, $color-main) {
+@mixin table-action-styles($color-light, $color-main) {
   background-color: transparent;
   color: $color-main;
 
   &:hover {
-    background-color: rgba($color-dark, 0.1);
+    background-color: rgba($color-light, 0.5);
   }
 }
 
@@ -107,6 +107,7 @@ $button-colors: (
             color: $primary-main;
             cursor: pointer;
             display: flex;
+            flex-wrap: wrap;
             font-size: 0.75rem;
             font-weight: 500;
             gap: 0.5rem;
@@ -115,7 +116,7 @@ $button-colors: (
             user-select: none;
 
             &:hover {
-              background-color: rgba($primary-dark, 0.1);
+              background-color: rgba($primary-light, 0.5);
             }
 
             @each $name, $colors in $button-colors {
