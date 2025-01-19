@@ -1,0 +1,30 @@
+@use 'shared/styles/functions' as *;
+@use 'shared/styles/theme' as *;
+
+.crud-detail {
+  padding: $base-container-spacing;
+
+  .crud-detail__content {
+    background-color: $white;
+    border-radius: 1rem;
+    box-shadow: $base-shadow;
+    display: grid;
+    gap: 1.5rem;
+    padding: $base-container-spacing;
+
+    .crud-detail__item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .crud-detail__value {
+        align-items: center;
+        border-bottom: 0.0625rem solid get-color(gray, 200);
+        display: flex;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding-bottom: 0.875rem;
+      }
+    }
+  }
+}

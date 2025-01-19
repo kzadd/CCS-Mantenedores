@@ -1,0 +1,33 @@
+<div class="crud-detail">
+  @if (error) {
+    <app-toast
+      severity="error"
+      textDirection="vertical"
+      title="Lo sentimos, estamos presentando problemas con nuestro servidor."
+    >
+      En estos momentos tenemos problemas para disponibilizar la información. Por favor, consulta en unos minutos más.
+    </app-toast>
+  }
+
+  @if (!error) {
+    <div class="crud-detail__content">
+      @for (item of config; track $index) {
+        <div class="crud-detail__item">
+          <app-label [id]="item.key" [label]="item.label" />
+
+          @if (loading) {
+            <app-skeleton height="36px" />
+          } @else {
+            <span [id]="item.key" class="crud-detail__value">
+              @if (item.key === 'status') {
+                <app-badge [color]="item.value ? 'success' : 'error'" [label]="item.value ? 'Activo' : 'Inactivo'" />
+              } @else {
+                {{ item.value }}
+              }
+            </span>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

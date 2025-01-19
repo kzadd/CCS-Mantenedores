@@ -19,7 +19,7 @@ const defaultErrorState = (state: CountryState, payload: { error: AppError }): C
 
 const defaultLoadingState = (state: CountryState): CountryState => ({
   ...state,
-  ...initialState,
+  error: null,
   loading: true
 })
 
