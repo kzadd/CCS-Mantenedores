@@ -45,9 +45,9 @@ $button-colors: (
     }
 
     &.button--disabled {
-      background-color: $default-light;
+      background-color: $disabled-background;
       border-color: $border;
-      color: $default-main;
+      color: $disabled-color;
     }
   } @else if $variant == 'outlined' {
     background-color: transparent;
@@ -60,8 +60,8 @@ $button-colors: (
 
     &.button--disabled {
       border-color: $border;
-      border-color: $default-light;
-      color: $default-light;
+      border-color: $disabled-background;
+      color: $disabled-color;
     }
   }
 }

@@ -20,8 +20,8 @@ export class SkeletonComponent {
     return {
       height: this.height,
       margin: this.margin,
-      padding: this.padding,
-      width: this.width
+      maxWidth: this.width,
+      padding: this.padding
     }
   }
 }

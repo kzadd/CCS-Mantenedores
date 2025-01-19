@@ -12,7 +12,7 @@
           <app-button
             (click)="action.onAction()"
             [color]="action.color ?? 'primary'"
-            [disabled]="action.disabled ?? false"
+            [disabled]="(action.disabled ?? false) || loading"
             [variant]="action.variant ?? 'contained'"
           >
             @if (action.icon) {

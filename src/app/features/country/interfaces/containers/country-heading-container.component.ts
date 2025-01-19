@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core'
+import { toSignal } from '@angular/core/rxjs-interop'
 import { Router } from '@angular/router'
 import { matArrowBack, matPlus } from '@ng-icons/material-icons/baseline'
+import { Store } from '@ngrx/store'
 
 import { CountryViewMode } from '@app/features/country/domain/country.entity'
 import { CrudHeadingComponent } from '@app/shared/components'
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 import { Breadcrumb } from '@app/shared/types/components/breadscrumb.types'
 import { HeadingAction, HeadingConfig } from '@app/shared/types/components/customs/crud-heading.types'
+import { countryFeature } from '../../application/country.feature'
 
 const COUNTRY_HEADING_ICONS = {
   backIcon: matArrowBack,
@@ -20,12 +23,15 @@ const COUNTRY_HEADING_ICONS = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CrudHeadingComponent],
   selector: 'app-country-heading-container',
-  template: `<app-crud-heading [config]="headingConfig" [mode]="mode" />`
+  template: `<app-crud-heading [config]="headingConfig" [loading]="loading()" [mode]="mode" />`
 })
 export class CountryHeadingContainerComponent {
   private _router = inject(Router)
+  private _store = inject(Store)
 
   @Input({ required: true }) mode!: CountryViewMode
+
+  loading = toSignal(this._store.select(countryFeature.selectLoading), { initialValue: false })
 
   backAction: HeadingAction = {
     icon: COUNTRY_HEADING_ICONS.backIcon,

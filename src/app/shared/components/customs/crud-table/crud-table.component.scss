@@ -4,7 +4,7 @@
   .crud-table {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: $base-container-spacing;
 
     ::ng-deep {
@@ -16,7 +16,7 @@
         }
 
         .input__suffix {
-          color: $default-main;
+          color: $disabled-color;
         }
       }
     }

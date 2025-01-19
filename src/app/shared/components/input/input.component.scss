@@ -41,9 +41,14 @@
       }
 
       &.input__field--disabled {
-        background-color: $default-light;
-        color: $default-dark;
+        background-color: $disabled-background;
+        border-color: $border;
+        color: $disabled-color;
         cursor: not-allowed;
+
+        &::placeholder {
+          color: $disabled-color;
+        }
       }
     }
 

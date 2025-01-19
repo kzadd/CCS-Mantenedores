@@ -18,6 +18,8 @@ $container: get-color(gray, 100);
 $default-dark: get-color(gray, 600);
 $default-light: get-color(gray, 200);
 $default-main: get-color(gray, 500);
+$disabled-background: get-color(gray, 200);
+$disabled-color: get-color(gray, 500);
 $error-dark: get-color(red, 600);
 $error-light: get-color(red, 200);
 $error-main: get-color(red, 500);

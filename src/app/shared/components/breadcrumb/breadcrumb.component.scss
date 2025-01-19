@@ -1,3 +1,4 @@
+@use 'shared/styles/functions' as *;
 @use 'shared/styles/theme' as *;
 
 .breadcrumb {
@@ -17,7 +18,7 @@
       user-select: none;
 
       &:not(:last-child):after {
-        color: $default-dark;
+        color: get-color(gray, 400);
         content: '/';
       }
 
