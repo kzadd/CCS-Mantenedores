@@ -37,8 +37,8 @@ export class LoginAuthContainerComponent implements OnInit {
   errorMessage = false
 
   form: FormGroup<LoginAuthForm> = this._formBuilder.group({
-    password: [DEFAULT_CREDENTIALS.password, [isRequired]],
-    username: [DEFAULT_CREDENTIALS.username, [isRequired]]
+    password: this._formBuilder.control(DEFAULT_CREDENTIALS.password, [isRequired]),
+    username: this._formBuilder.control(DEFAULT_CREDENTIALS.username, [isRequired])
   })
 
   showPassword = false

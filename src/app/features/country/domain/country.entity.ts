@@ -1,9 +1,10 @@
 import { AppError } from '@app/shared/types/exception.types'
+import { FormControlGroup } from '@app/shared/types/form.types'
 
 export interface Country {
   createdAt: string
   createdBy: string
-  id: number
+  id: string
   name: string
   status: boolean
   updatedAt: string
@@ -20,7 +21,9 @@ export interface CountryApiResponse {
   PaisUpdateUsuario: string
 }
 
+export type CountryForm = FormControlGroup<Country>
 export type CountryFormMode = 'edit' | 'new'
+export type CountryKey = Extract<keyof Country, string>
 
 export interface CountryState {
   countries: Country[]

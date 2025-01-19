@@ -14,10 +14,10 @@ export const countriesAdapter = (response: ApiResponse<CountryApiResponse[]>): C
  */
 export const countryAdapter = (response: CountryApiResponse): Country => ({
   createdAt: formatDateToShortDate(response.PaisInsertFhora),
-  createdBy: response.PaisInsertUsuario,
-  id: response.PaisId,
-  name: response.PaisNombre,
-  status: response.PaisEstado,
+  createdBy: response.PaisInsertUsuario ?? '',
+  id: response.PaisId.toString() ?? '',
+  name: response.PaisNombre ?? '',
+  status: response.PaisEstado ?? false,
   updatedAt: formatDateToShortDate(response.PaisUpdateFhora),
-  updatedBy: response.PaisUpdateUsuario
+  updatedBy: response.PaisUpdateUsuario ?? ''
 })
