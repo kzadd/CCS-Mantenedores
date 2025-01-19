@@ -1,7 +1,7 @@
 <button (click)="handleClick()" [class]="buttonClasses" [disabled]="disabled" [style]="buttonStyles" [type]="type">
   @if (loading) {
     <div class="button--loading">
-      <app-spinner [color]="spinnerColor" size="20px" />
+      <app-spinner [color]="spinnerColor" size="1.25rem" />
     </div>
   } @else {
     <ng-content />
