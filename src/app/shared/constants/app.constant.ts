@@ -56,6 +56,8 @@ export const TOKEN_KEYS = {
 }
 
 export const TOKENS = {
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.',
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.'
+  accessToken:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoia3phZGQiLCJyb2xlcyI6W10sImlhdCI6MTczNzI4MzU3NSwiZXhwIjoxNzM3MzY5OTc1fQ.ltGjvxvv7KG3hYXrEIO8eUIkPGoq96E4TjF_uZA0ncA',
+  refreshToken:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoia3phZGQiLCJyb2xlcyI6W10sImlhdCI6MTczNzI4MzU3NSwiZXhwIjoxNzM3ODg4Mzc1fQ._y01AMme-0STXrizq2jqgR2ypjcix32jTlpvbMrLWkg'
 }
