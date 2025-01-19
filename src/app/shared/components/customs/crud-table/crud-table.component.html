@@ -1,4 +1,8 @@
 <div class="crud-table">
+  <app-input [(ngModel)]="searchTerm" [disabled]="!!error || loading" placeholder="Buscar...">
+    <ng-icon name="searchIcon" suffix />
+  </app-input>
+
   @if (loading) {
     <app-skeleton-table [rows]="8" [columns]="5" />
   }
@@ -14,6 +18,10 @@
   }
 
   @if (!error && !loading) {
-    <app-table [actions]="actions" [columns]="columns" [data]="data" />
+    <app-table [actions]="actions" [columns]="columns" [data]="filteredData" />
+
+    @if (filteredData.length && totalPages > 1) {
+      <app-pagination (pageChange)="changePage($event)" [currentPage]="currentPage" [totalPages]="totalPages" />
+    }
   }
 </div>
