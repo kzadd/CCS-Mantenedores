@@ -33,7 +33,7 @@ export class CountryHeadingContainerComponent {
 
   loading = toSignal(this._store.select(countryFeature.selectLoading), { initialValue: false })
 
-  backAction: HeadingAction = {
+  defaultBackAction: HeadingAction = {
     icon: COUNTRY_HEADING_ICONS.backIcon,
     label: 'Volver al listado',
     onAction: () => this._router.navigate([FULL_ROUTE_PATHS.country.list]),
@@ -42,7 +42,7 @@ export class CountryHeadingContainerComponent {
 
   headingConfig: HeadingConfig<CountryViewMode> = {
     edit: {
-      actions: [this.backAction],
+      actions: [this.defaultBackAction],
       breadcrumbs: this._buildBreadcrumb('Editar país', 'base'),
       title: 'Editar información del país'
     },
@@ -58,12 +58,12 @@ export class CountryHeadingContainerComponent {
       title: 'Listado de países'
     },
     new: {
-      actions: [this.backAction],
+      actions: [this.defaultBackAction],
       breadcrumbs: this._buildBreadcrumb('Agregar país', 'base'),
       title: 'Agregar nuevo país'
     },
     show: {
-      actions: [this.backAction],
+      actions: [this.defaultBackAction],
       breadcrumbs: this._buildBreadcrumb('Detalles del país', 'base'),
       title: 'Información detallada del país'
     }
