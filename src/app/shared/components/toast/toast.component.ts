@@ -49,8 +49,8 @@ export class ToastComponent {
     }
   }
 
-  get toastClasses(): string[] {
-    return ['toast', `toast--${this.severity}`, `toast__direction--${this.textDirection}`].filter(Boolean)
+  get toastClasses(): string {
+    return `toast toast--${this.severity} toast__direction--${this.textDirection}`
   }
 
   get toastStyles(): Record<string, string> {
