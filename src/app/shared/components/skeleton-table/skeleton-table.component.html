@@ -1,0 +1,11 @@
+<div class="table-skeleton">
+  <app-skeleton />
+
+  @for (row of [].constructor(rows); track row) {
+    <div class="table-skeleton-row">
+      @for (col of [].constructor(columns); track col) {
+        <app-skeleton height="1.5rem" class="table-skeleton-column" />
+      }
+    </div>
+  }
+</div>

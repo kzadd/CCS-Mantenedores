@@ -1,0 +1,22 @@
+:host {
+  .table-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+
+    .table-skeleton-row {
+      display: flex;
+      gap: 0.875rem;
+
+      ::ng-deep {
+        .table-skeleton-column {
+          flex: 1;
+
+          .skeleton {
+            border-radius: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -58,6 +58,7 @@ $toast-colors: (
 
   .toast__content {
     display: flex;
+    flex: 1;
     gap: 0.25rem;
   }
 

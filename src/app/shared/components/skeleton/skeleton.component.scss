@@ -1,38 +1,10 @@
 @use 'shared/styles/functions' as *;
 
 .skeleton {
+  animation: 2s ease-in-out 0.5s infinite normal none running pulse;
   background-color: get-color(gray, 200);
   border-radius: 0.25rem;
-  display: inline-flex;
-  overflow: hidden;
-  position: relative;
-
-  &.skeleton--circular {
-    border-radius: 50%;
-    height: 2.75rem;
-    width: 2.75rem;
-  }
-
-  &.skeleton--rectangular {
-    height: 2.75rem;
-    width: 100%;
-  }
-
-  &.skeleton--pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    background: get-color(gray, 200);
-  }
-
-  &.skeleton--wave {
-    &::after {
-      animation: wave 1.6s linear 0.5s infinite;
-      background: linear-gradient(90deg, get-color(gray, 200), get-color(gray, 100), get-color(gray, 200));
-      content: '';
-      inset: 0;
-      position: absolute;
-      transform: translateX(-100%);
-    }
-  }
+  display: block;
 }
 
 @keyframes pulse {
@@ -42,15 +14,5 @@
   }
   50% {
     opacity: 0.5;
-  }
-}
-
-@keyframes wave {
-  0% {
-    transform: translateX(-100%);
-  }
-  50%,
-  100% {
-    transform: translateX(100%);
   }
 }

@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
-import { SkeletonAnimation, SkeletonVariant } from '@app/shared/types/components/skeleton.types'
-
 /**
  * Skeleton component.
  */
@@ -13,19 +11,14 @@ import { SkeletonAnimation, SkeletonVariant } from '@app/shared/types/components
   templateUrl: './skeleton.component.html'
 })
 export class SkeletonComponent {
-  @Input() animation: SkeletonAnimation = 'wave'
-  @Input() height = ''
+  @Input() height = '2.75rem'
   @Input() margin = ''
   @Input() padding = ''
-  @Input() variant: SkeletonVariant = 'rectangular'
-  @Input() width = ''
-
-  get skeletonClasses(): string {
-    return `skeleton skeleton--${this.animation} skeleton--${this.variant}`
-  }
+  @Input() width = '100%'
 
   get skeletonStyles(): Record<string, string> {
     return {
+      height: this.height,
       margin: this.margin,
       padding: this.padding,
       width: this.width

@@ -1,0 +1,19 @@
+<div class="crud-table">
+  @if (loading) {
+    <app-skeleton-table [rows]="8" [columns]="5" />
+  }
+
+  @if (error) {
+    <app-toast
+      severity="error"
+      textDirection="vertical"
+      title="Lo sentimos, estamos presentando problemas con nuestro servidor."
+    >
+      En estos momentos tenemos problemas para disponibilizar la información. Por favor, consulta en unos minutos más.
+    </app-toast>
+  }
+
+  @if (!error && !loading) {
+    <app-table [actions]="actions" [columns]="columns" [data]="data" />
+  }
+</div>
