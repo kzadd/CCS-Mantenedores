@@ -65,14 +65,6 @@ $button-colors: (
           gap: 0.5rem;
           text-transform: uppercase;
         }
-
-        &.table__header-cell--sortable .table__header-cell-content {
-          cursor: pointer;
-        }
-
-        &.table__header-cell--sorted .table__header-cell-content {
-          color: get-color(yellow, 400);
-        }
       }
     }
 

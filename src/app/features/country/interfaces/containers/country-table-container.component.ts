@@ -60,19 +60,16 @@ export class CountryTableContainerComponent implements OnInit {
     {
       key: 'id',
       label: 'Id',
-      sortable: true,
       width: '100px'
     },
     {
       key: 'name',
       label: 'Nombre',
-      sortable: true,
       width: '245px'
     },
     {
       key: 'status',
       label: 'Estado',
-      sortable: true,
       width: '100px'
     },
     {

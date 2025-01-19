@@ -4,27 +4,12 @@
       <tr class="table__header-row">
         @for (column of columns; track $index) {
           <th
-            [class]="{
-              'table__header-cell': true,
-              'table__header-cell--sortable': column.sortable,
-              'table__header-cell--sorted': sortBy === column.key && sortOrder !== 'none'
-            }"
+            class="table__header-cell"
             [style.min-width]="column.width ?? 'auto'"
             [style.width]="column.width ?? 'auto'"
           >
-            <div (click)="sortData(column)" class="table__header-cell-content">
+            <div class="table__header-cell-content">
               {{ column.label }}
-
-              @if (column.sortable) {
-                @if (sortBy === column.key) {
-                  <ng-icon
-                    [name]="sortOrder === 'asc' ? 'ascIcon' : sortOrder === 'desc' ? 'descIcon' : 'noneIcon'"
-                    size="0.825rem"
-                  />
-                } @else {
-                  <ng-icon name="noneIcon" size="0.825rem" />
-                }
-              }
             </div>
           </th>
         }
