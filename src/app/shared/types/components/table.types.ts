@@ -4,7 +4,7 @@ export interface TableAction<T> {
   color?: Color
   icon?: string
   label: string
-  onAction: (row: T) => void
+  onAction: (data: T) => void
 }
 
 export interface TableColumn<T> {
