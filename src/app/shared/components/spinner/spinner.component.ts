@@ -14,7 +14,7 @@ import { SpinnerColor } from '@app/shared/types/components/spinner.types'
 })
 export class SpinnerComponent {
   @Input() color: SpinnerColor = 'primary'
-  @Input() size = '44px'
+  @Input() size = '2.75rem'
 
   get spinnerClasses(): string {
     return `spinner spinner--${this.color}`
