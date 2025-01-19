@@ -1,12 +1,4 @@
-import {
-  AfterContentInit,
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  ElementRef,
-  forwardRef,
-  Input
-} from '@angular/core'
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms'
 
 import { InputType } from '@app/shared/types/components/input.types'
@@ -29,9 +21,7 @@ const CONTROL_VALUE_ACCESSOR = {
   styleUrl: './input.component.scss',
   templateUrl: './input.component.html'
 })
-export class InputComponent implements AfterContentInit, ControlValueAccessor {
-  @ContentChild('[suffix]', { static: false }) suffix!: ElementRef
-
+export class InputComponent implements ControlValueAccessor {
   @Input() disabled = false
   @Input() error = ''
   @Input() id = ''
@@ -50,10 +40,6 @@ export class InputComponent implements AfterContentInit, ControlValueAccessor {
       this.disabled ? 'input__field--disabled' : '',
       this.error ? 'input__field--error' : ''
     ].filter(Boolean)
-  }
-
-  ngAfterContentInit(): void {
-    this.hasSuffix = !!this.suffix
   }
 
   onChange: (value: string) => void = () => {}

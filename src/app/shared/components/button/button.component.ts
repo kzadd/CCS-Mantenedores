@@ -22,7 +22,7 @@ export class ButtonComponent {
   @Input() padding = ''
   @Input() type: ButtonType = 'button'
   @Input() variant: ButtonVariant = 'contained'
-  @Input() width = 'initial'
+  @Input() width = ''
   @Output() buttonClick = new EventEmitter<void>()
 
   get buttonClasses(): string[] {

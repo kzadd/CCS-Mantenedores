@@ -12,6 +12,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 })
 export class LabelComponent {
   @Input() id = ''
-  @Input() label = ''
+  @Input({ required: true }) label!: string
   @Input() required = false
 }

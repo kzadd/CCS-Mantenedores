@@ -14,7 +14,7 @@ import { BadgeColor } from '@app/shared/types/components/badge.types'
 })
 export class BadgeComponent {
   @Input() color: BadgeColor = 'primary'
-  @Input() label = ''
+  @Input({ required: true }) label!: string
 
   get badgeClasses(): string {
     return `badge badge--${this.color}`

@@ -21,5 +21,5 @@ const BREADCRUMB_ICONS = {
   viewProviders: [provideIcons(BREADCRUMB_ICONS)]
 })
 export class BreadcrumbComponent {
-  @Input() breadcrumbs: Breadcrumb[] = []
+  @Input({ required: true }) breadcrumbs!: Breadcrumb[]
 }

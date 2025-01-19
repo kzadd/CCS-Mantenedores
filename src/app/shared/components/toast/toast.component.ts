@@ -28,7 +28,7 @@ export class ToastComponent {
   @Input() severity: ToastColor = 'primary'
   @Input() textDirection: ToastTextDirection = 'horizontal'
   @Input() title = ''
-  @Input() width = 'auto'
+  @Input() width = ''
 
   get toastIcon(): string {
     switch (this.severity) {

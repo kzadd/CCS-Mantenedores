@@ -3,7 +3,7 @@
 @use 'shared/styles/functions' as *;
 @use 'shared/styles/theme' as *;
 
-$button-colors: (
+$table-action-colors: (
   default: (
     $default-light,
     $default-main
@@ -110,7 +110,7 @@ $button-colors: (
               background-color: rgba($primary-light, 0.5);
             }
 
-            @each $name, $colors in $button-colors {
+            @each $name, $colors in $table-action-colors {
               &.table__action--#{$name} {
                 @include table-action-styles(list.nth($colors, 1), list.nth($colors, 2));
               }
