@@ -9,7 +9,10 @@
 
   <div (mouseenter)="handleProfileHover(true)" (mouseleave)="handleProfileHover(false)" class="topbar__profile">
     <ng-icon name="userAccountIcon" size="2rem" />
-    <span class="topbar__profile-name">{{ profileName }}</span>
+
+    <span class="topbar__profile-name">
+      {{ profileName }}
+    </span>
 
     <div [class.topbar__dropdown--show]="dropdownOpen" class="topbar__dropdown">
       <ul class="topbar__dropdown-list">

@@ -42,17 +42,10 @@ export class HttpService {
    * Makes an HTTP request to the specified endpoint and transforms the response.
    */
   private _createRequest<T>({ data, headers, method, url }: RequestOptions): Observable<NetworkResponse<T>> {
-    return this._http
-      .request<T>(method, url, {
-        body: data,
-        headers
-      })
-      .pipe(
-        map(response => ({
-          data: response
-        })),
-        catchError((error: HttpErrorResponse) => this._generateError(url, error))
-      )
+    return this._http.request<T>(method, url, { body: data, headers }).pipe(
+      map(response => ({ data: response })),
+      catchError((error: HttpErrorResponse) => this._generateError(url, error))
+    )
   }
 
   /**
@@ -69,12 +62,7 @@ export class HttpService {
     const headers = this._createHeaders(restOptions)
     const data = body ? JSON.stringify(body) : undefined
 
-    return this._createRequest<T>({
-      data,
-      headers,
-      method,
-      url
-    })
+    return this._createRequest<T>({ data, headers, method, url })
   }
 
   /**

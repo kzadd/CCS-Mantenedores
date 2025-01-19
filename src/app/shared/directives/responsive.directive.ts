@@ -15,11 +15,7 @@ export class ResponsiveDirective implements OnDestroy, OnInit {
   private _templateRef = inject(TemplateRef)
   private _viewContainer = inject(ViewContainerRef)
 
-  @Input({
-    alias: 'appResponsive',
-    required: true
-  })
-  breakpoint!: ResponsiveBreakpoint
+  @Input({ alias: 'appResponsive', required: true }) breakpoint!: ResponsiveBreakpoint
 
   private _breakpoints: ScreenSizeValue = {
     '2xl': 1536,
