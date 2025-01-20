@@ -8,6 +8,7 @@ import { Country } from '../domain/country.entity'
  */
 export const countryActions = createActionGroup({
   events: {
+    'Clear error': emptyProps(),
     'Create country': props<{ country: Country }>(),
     'Create country failure': props<{ error: AppError }>(),
     'Create country success': emptyProps(),

@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http'
 import { inject, Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
+import { ToastrService } from 'ngx-toastr'
 import { catchError, concatMap, map, of } from 'rxjs'
 
 import { createError } from '@app/shared/exceptions/create-error.exception'
@@ -12,6 +13,7 @@ import { countryActions } from './country.actions'
 export class CountryEffect {
   private _actions = inject(Actions)
   private _apiCountryRepository = inject(ApiCountryRepository)
+  private _toast = inject(ToastrService)
 
   /**
    * Effect that handles countries thunk.
@@ -81,7 +83,11 @@ export class CountryEffect {
       ofType(countryActions.createCountry),
       concatMap(({ country }) => {
         return this._apiCountryRepository.createCountry(country).pipe(
-          map(() => countryActions.createCountrySuccess()),
+          map(() => {
+            this._toast.success('El país ha sido agregado exitosamente.', 'País')
+
+            return countryActions.createCountrySuccess()
+          }),
           catchError((error: HttpErrorResponse) => {
             const failureResponse = {
               error: createError({
@@ -105,7 +111,11 @@ export class CountryEffect {
       ofType(countryActions.updateCountry),
       concatMap(({ id, country }) => {
         return this._apiCountryRepository.updateCountry(id, country).pipe(
-          map(() => countryActions.updateCountrySuccess()),
+          map(() => {
+            this._toast.success('El país ha sido actualizado exitosamente.', 'País')
+
+            return countryActions.updateCountrySuccess()
+          }),
           catchError((error: HttpErrorResponse) => {
             const failureResponse = {
               error: createError({

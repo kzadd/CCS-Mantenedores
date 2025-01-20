@@ -30,6 +30,10 @@ export const countryFeature = createFeature({
   name: 'country',
   reducer: createReducer(
     initialState,
+    on(countryActions.clearError, state => ({
+      ...state,
+      error: null
+    })),
     on(countryActions.loadCountries, defaultLoadingState),
     on(countryActions.loadCountriesFailure, defaultErrorState),
     on(countryActions.loadCountriesSuccess, (state, payload) => ({
