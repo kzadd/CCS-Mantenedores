@@ -1,0 +1,79 @@
+<div class="country-form">
+  <div class="country-form__container">
+    <form [formGroup]="form" class="country-form__form">
+      <app-input
+        [error]="getErrorMessage('id')"
+        [isRequired]="true"
+        formControlName="id"
+        id="id"
+        label="Id"
+        name="id"
+        placeholder="Ingrese el id"
+      />
+
+      <app-input
+        [error]="getErrorMessage('name')"
+        [isRequired]="true"
+        formControlName="name"
+        id="name"
+        label="Nombre"
+        name="name"
+        placeholder="Ingrese el nombre"
+      />
+
+      <app-input
+        [error]="getErrorMessage('createdBy')"
+        [isRequired]="true"
+        formControlName="createdBy"
+        id="createdBy"
+        label="Creado por"
+        name="createdBy"
+        placeholder="Ingrese el usuario de creación"
+      />
+
+      <app-date
+        [error]="getErrorMessage('createdAt')"
+        [isRequired]="true"
+        formControlName="createdAt"
+        id="createdAt"
+        label="Fecha de creación"
+        name="createdAt"
+      />
+
+      <app-input
+        [error]="getErrorMessage('updatedBy')"
+        [isRequired]="true"
+        formControlName="updatedBy"
+        id="updatedBy"
+        label="Actualizado por"
+        name="updatedBy"
+        placeholder="Ingrese el usuario de actualización"
+      />
+
+      <app-date
+        [error]="getErrorMessage('updatedAt')"
+        [isRequired]="true"
+        formControlName="updatedAt"
+        id="updatedAt"
+        label="Fecha de actualización"
+        name="updatedAt"
+      />
+
+      <app-checkbox formControlName="status" id="status" label="Estado" name="status" />
+    </form>
+
+    @if (error()) {
+      <app-toast
+        severity="error"
+        textDirection="vertical"
+        title="Lo sentimos, estamos presentando problemas con nuestro servidor."
+      >
+        En estos momentos tenemos problemas para disponibilizar la información. Por favor, consulta en unos minutos más.
+      </app-toast>
+    }
+
+    <app-button (buttonClick)="handleSubmit()" [disabled]="form.invalid || loading()">
+      {{ submitButtonLabel }}
+    </app-button>
+  </div>
+</div>

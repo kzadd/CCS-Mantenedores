@@ -84,7 +84,7 @@ export class CountryEffect {
       concatMap(({ country }) => {
         return this._apiCountryRepository.createCountry(country).pipe(
           map(() => {
-            this._toast.success('El país ha sido agregado exitosamente.', 'País')
+            this._toast.success('¡Excelente! El país se ha creado exitosamente.', 'País')
 
             return countryActions.createCountrySuccess()
           }),
@@ -112,7 +112,7 @@ export class CountryEffect {
       concatMap(({ id, country }) => {
         return this._apiCountryRepository.updateCountry(id, country).pipe(
           map(() => {
-            this._toast.success('El país ha sido actualizado exitosamente.', 'País')
+            this._toast.success('¡Excelente! El país se ha actualizado exitosamente.', 'País')
 
             return countryActions.updateCountrySuccess()
           }),

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, forwardRef, Input, signal } from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
+import { parse } from 'date-fns'
 
 import { LabelComponent } from '../label/label.component'
 
@@ -62,6 +63,23 @@ export class DateComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string | null): void {
-    this.value.set(value ?? null)
+    if (!value) {
+      this.value.set(null)
+
+      return
+    }
+
+    const parsedDate = parse(value, 'dd/MM/yyyy', new Date())
+
+    if (isNaN(parsedDate.getTime())) {
+      this.value.set(null)
+
+      return
+    }
+
+    const formattedDate = parsedDate.toISOString().substring(0, 10)
+
+    this.value.set(formattedDate)
+    this.onChange(formattedDate)
   }
 }
