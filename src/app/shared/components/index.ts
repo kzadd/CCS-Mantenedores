@@ -1,6 +1,7 @@
 export * from './badge/badge.component'
 export * from './breadcrumb/breadcrumb.component'
 export * from './button/button.component'
+export * from './checkbox/checkbox.component'
 export * from './customs'
 export * from './input/input.component'
 export * from './label/label.component'

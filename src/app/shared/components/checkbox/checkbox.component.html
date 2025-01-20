@@ -1,0 +1,18 @@
+<div class="checkbox-input">
+  <div class="checkbox-input__wrapper">
+    <input
+      (blur)="onTouched()"
+      (change)="onCheckboxChange($event)"
+      [checked]="value()"
+      [class]="checkboxFieldClasses"
+      [disabled]="disabled"
+      [id]="id"
+      [name]="name"
+      type="checkbox"
+    />
+
+    <div class="checkbox-input__label">
+      {{ label }}
+    </div>
+  </div>
+</div>
