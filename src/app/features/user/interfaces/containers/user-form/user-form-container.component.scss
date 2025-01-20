@@ -1,0 +1,29 @@
+@use 'shared/styles/theme' as *;
+
+.user-form {
+  padding: 2rem;
+
+  .user-form__container {
+    background-color: $white;
+    border-radius: 0.5rem;
+    box-shadow: $base-shadow;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: $base-container-spacing;
+
+    .user-form__form {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+
+      @media (max-width: $base-breakpoint-lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: $base-breakpoint-md) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

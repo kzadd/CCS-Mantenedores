@@ -1,0 +1,29 @@
+<div class="dealership-form">
+  <div class="dealership-form__container">
+    <form [formGroup]="form" class="dealership-form__form">
+      <app-input
+        [error]="getErrorMessage('id')"
+        [isRequired]="true"
+        formControlName="id"
+        id="id"
+        label="Id"
+        name="id"
+        placeholder="Ingrese el id"
+      />
+    </form>
+
+    @if (error()) {
+      <app-toast
+        severity="error"
+        textDirection="vertical"
+        title="Lo sentimos, estamos presentando problemas con nuestro servidor."
+      >
+        En estos momentos tenemos problemas para disponibilizar la información. Por favor, consulta en unos minutos más.
+      </app-toast>
+    }
+
+    <app-button (buttonClick)="handleSubmit()" [disabled]="form.invalid || loading()">
+      {{ submitButtonLabel }}
+    </app-button>
+  </div>
+</div>
