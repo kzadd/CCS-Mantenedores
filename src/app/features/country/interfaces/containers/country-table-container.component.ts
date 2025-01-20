@@ -29,7 +29,7 @@ const COUNTRY_TABLE_ICONS = {
     [columns]="columns"
     [data]="countries()"
     [error]="error()"
-    [filterableBy]="['id', 'name']"
+    [filterableBy]="['id', 'name', 'status']"
     [loading]="loading()"
   />`
 })
