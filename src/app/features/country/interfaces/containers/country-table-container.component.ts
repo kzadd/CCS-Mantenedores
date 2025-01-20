@@ -29,6 +29,7 @@ const COUNTRY_TABLE_ICONS = {
     [columns]="columns"
     [data]="countries()"
     [error]="error()"
+    [filterableBy]="['id', 'name']"
     [loading]="loading()"
   />`
 })
@@ -65,22 +66,22 @@ export class CountryTableContainerComponent implements OnInit {
     {
       key: 'name',
       label: 'Nombre',
-      width: '245px'
+      width: '200px'
     },
     {
       key: 'status',
       label: 'Estado',
-      width: '100px'
+      width: '140px'
     },
     {
       key: 'createdAt',
       label: 'Fecha creación',
-      width: '180px'
+      width: '200px'
     },
     {
       key: 'createdBy',
       label: 'Creado por',
-      width: '180px'
+      width: '200px'
     },
     {
       key: 'updatedAt',

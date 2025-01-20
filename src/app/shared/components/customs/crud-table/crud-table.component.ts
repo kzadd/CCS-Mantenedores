@@ -39,6 +39,7 @@ export class CrudTableComponent<T> {
   @Input({ required: true }) columns!: TableColumn<T>[]
   @Input({ required: true }) data!: T[]
   @Input({ required: true }) error!: AppError | null
+  @Input() filterableBy: TableDataKey<T>[] = []
   @Input({ required: true }) loading!: boolean
   @Input() pageSize = 10
 
@@ -68,7 +69,7 @@ export class CrudTableComponent<T> {
 
   private _getFilteredItems(searchTerm: string): T[] {
     return this.data.filter(item => {
-      const keys = Object.keys(item as object) as TableDataKey<T>[]
+      const keys = this.filterableBy.length ? this.filterableBy : (Object.keys(item as object) as TableDataKey<T>[])
 
       return keys.some(key => String(item[key]).toLowerCase().includes(searchTerm))
     })
