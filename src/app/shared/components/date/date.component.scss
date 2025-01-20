@@ -1,0 +1,53 @@
+@use 'shared/styles/theme' as *;
+
+.date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .date__field {
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid $border;
+    display: flex;
+    font-family: $base-font-family;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.025rem;
+    min-height: 2.75rem;
+    min-width: 4rem;
+    outline: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    width: 100%;
+
+    &::placeholder {
+      color: $text-muted;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: $primary-main;
+    }
+
+    &.date__field--error {
+      border-color: $error-main;
+    }
+
+    &.date__field--disabled {
+      background-color: $disabled-background;
+      border-color: $border;
+      color: $disabled-color;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: $disabled-color;
+      }
+    }
+  }
+
+  .date__error {
+    color: $error-main;
+    font-size: 0.75rem;
+  }
+}

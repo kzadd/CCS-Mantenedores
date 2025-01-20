@@ -1,0 +1,23 @@
+<div class="date">
+  @if (label) {
+    <app-label [id]="id" [label]="label" [required]="isRequired" />
+  }
+
+  <input
+    (blur)="onTouched()"
+    (input)="onDateChange($event)"
+    [class]="dateFieldClasses"
+    [disabled]="disabled"
+    [id]="id"
+    [name]="name"
+    [placeholder]="placeholder"
+    [value]="value()"
+    type="date"
+  />
+
+  @if (error) {
+    <div class="date__error">
+      {{ error }}
+    </div>
+  }
+</div>

@@ -1,17 +1,17 @@
 @use 'shared/styles/theme' as *;
 @use 'shared/styles/functions' as *;
 
-.checkbox-input {
+.checkbox {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 
-  .checkbox-input__wrapper {
+  .checkbox__wrapper {
     align-items: center;
     display: inline-flex;
     gap: 0.5rem;
 
-    .checkbox-input__field {
+    .checkbox__field {
       -webkit-appearance: none;
       appearance: none;
       background-color: transparent;
@@ -48,7 +48,7 @@
         border-color: $primary-dark;
       }
 
-      &:disabled {
+      &.checkbox__field--disabled {
         background-color: $disabled-background;
         border-color: $border;
         cursor: not-allowed;
@@ -59,7 +59,7 @@
       }
     }
 
-    .checkbox-input__label {
+    .checkbox__label {
       align-items: center;
       color: get-color(gray, 700);
       display: inline-flex;

@@ -19,7 +19,7 @@ const CONTROL_VALUE_ACCESSOR = {
   templateUrl: './checkbox.component.html'
 })
 export class CheckboxComponent implements ControlValueAccessor {
-  @Input() disabled = true
+  @Input() disabled = false
   @Input() id = ''
   @Input() label = ''
   @Input() name = ''
@@ -27,7 +27,7 @@ export class CheckboxComponent implements ControlValueAccessor {
   value = signal<boolean>(false)
 
   get checkboxFieldClasses(): string[] {
-    return ['checkbox-input__field', this.disabled ? 'checkbox-input__field--disabled' : ''].filter(Boolean)
+    return ['checkbox__field', this.disabled ? 'checkbox__field--disabled' : ''].filter(Boolean)
   }
 
   onChange: (value: boolean) => void = () => {}
