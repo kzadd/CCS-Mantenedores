@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core'
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms'
+import { ChangeDetectionStrategy, Component, forwardRef, Input, signal } from '@angular/core'
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms'
 
 import { InputType } from '@app/shared/types/components/input.types'
 import { LabelComponent } from '../label/label.component'
@@ -15,7 +15,7 @@ const CONTROL_VALUE_ACCESSOR = {
  */
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [LabelComponent, ReactiveFormsModule],
+  imports: [LabelComponent],
   providers: [CONTROL_VALUE_ACCESSOR],
   selector: 'app-input',
   styleUrl: './input.component.scss',
@@ -30,7 +30,8 @@ export class InputComponent implements ControlValueAccessor {
   @Input() name = ''
   @Input() placeholder = ''
   @Input() type: InputType = 'text'
-  @Input() value = ''
+
+  value = signal<string>('')
 
   hasSuffix = false
 
@@ -47,7 +48,7 @@ export class InputComponent implements ControlValueAccessor {
   onInputChange(event: Event) {
     const inputElement = event.target as HTMLInputElement
 
-    this.value = inputElement.value
+    this.value.set(inputElement.value)
     this.onChange(inputElement.value)
     this.onTouched()
   }
@@ -67,6 +68,6 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string): void {
-    this.value = value ?? ''
+    this.value.set(value ?? '')
   }
 }
