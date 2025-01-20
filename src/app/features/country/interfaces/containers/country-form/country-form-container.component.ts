@@ -17,7 +17,7 @@ import {
 } from '@app/shared/components'
 import { FULL_ROUTE_PATHS } from '@app/shared/constants/app.constant'
 import { getFormControlErrorMessage } from '@app/shared/utils/form-error.utils'
-import { isNumber, isRequired } from '@app/shared/utils/validators.utils'
+import { isNumber, isRequired, maxLength } from '@app/shared/utils/validators.utils'
 
 /**
  * Country form container.
@@ -43,12 +43,12 @@ export class CountryFormContainerComponent implements OnInit {
 
   form: FormGroup<CountryForm> = this._formBuilder.group<CountryForm>({
     createdAt: this._formBuilder.control('', [isRequired]),
-    createdBy: this._formBuilder.control('', [isRequired]),
+    createdBy: this._formBuilder.control('', [isRequired, maxLength(100)]),
     id: this._formBuilder.control('', [isRequired, isNumber]),
-    name: this._formBuilder.control('', [isRequired]),
+    name: this._formBuilder.control('', [isRequired, maxLength(40)]),
     status: this._formBuilder.control(true),
     updatedAt: this._formBuilder.control('', [isRequired]),
-    updatedBy: this._formBuilder.control('', [isRequired])
+    updatedBy: this._formBuilder.control('', [isRequired, maxLength(100)])
   })
 
   get submitButtonLabel(): string {
