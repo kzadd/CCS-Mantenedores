@@ -5,7 +5,8 @@ import { environment } from '@env/environment'
  */
 export const env = {
   API_URL: environment?.API_URL ?? '',
-  IS_MOCKING_ENABLED: environment?.IS_MOCKING_ENABLED ?? false,
+  API_URL_GAM: environment?.API_URL_GAM ?? '',
+  IS_MOCKING_ENABLED: environment?.IS_MOCKING_ENABLED ?? 'false',
   MODE: environment?.MODE ?? 'local',
   ROOT_URL: environment?.ROOT_URL ?? '/'
 }

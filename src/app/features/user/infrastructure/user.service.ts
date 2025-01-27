@@ -21,15 +21,15 @@ export class ApiUserRepository implements UserRepository {
       EmpresaId: user.id
     }
 
-    return this._http.post(`${env.API_URL}/usuario`, { body })
+    return this._http.post(`${env.API_URL_GAM}/gamcentral/rest/`, { body })
   }
 
   getUsers(): Observable<ApiResponse<UserApiResponse[]>> {
-    return this._http.get(`${env.API_URL}/usuario`)
+    return this._http.get(`${env.API_URL_GAM}/gamcentral/rest/WS_ConsultaUsuarios`)
   }
 
   getUserById(id: string): Observable<ApiResponse<UserApiResponse>> {
-    return this._http.get(`${env.API_URL}/usuario/${id}`)
+    return this._http.get(`${env.API_URL_GAM}/gamcentral/rest/${id}`)
   }
 
   updateUser(id: string, user: User): Observable<ApiResponse<UserApiResponse>> {
@@ -37,6 +37,6 @@ export class ApiUserRepository implements UserRepository {
       EmpresaId: user.id
     }
 
-    return this._http.patch(`${env.API_URL}/usuario/${id}`, { body })
+    return this._http.patch(`${env.API_URL_GAM}/gamcentral/rest/${id}`, { body })
   }
 }
